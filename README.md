@@ -13,8 +13,7 @@ A aplicação utiliza uma API fake com JSON Server para persistir produtos, clie
 
 ## 🎨 Design
 
-- **Prototipação no Figma:** `A definir — inserir aqui o link do protótipo`.
-- **Design System:** `A definir — inserir aqui o link do documento de identidade visual`.
+- **Prototipação no Figma:** https://stitch.google.com/projects/5892625441821988342.
 
 ## 🌐 Site em Produção
 
