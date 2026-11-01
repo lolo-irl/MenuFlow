@@ -74,9 +74,9 @@ Os itens abaixo representam os indicadores de desempenho da disciplina. As caixa
 
 ### RA3 — Ferramentas e organização do desenvolvimento
 
-- [ ] **ID 15** — Configura o ambiente com Node.js e NPM.
-- [ ] **ID 16** — Utiliza Git/GitHub com organização de branches e arquivo `.gitignore`.
-- [ ] **ID 17** — Mantém este README padronizado e atualiza o checklist durante o desenvolvimento.
+- [x] **ID 15** — Configura o ambiente com Node.js e NPM.
+- [x] **ID 16** — Utiliza Git/GitHub com organização de branches e arquivo `.gitignore`.
+- [x] **ID 17** — Mantém este README padronizado e atualiza o checklist durante o desenvolvimento.
 - [ ] **ID 18** — Organiza os arquivos de forma modular.
 - [ ] **ID 19** — Configura ESLint e Prettier.
 
