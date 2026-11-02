@@ -2,12 +2,12 @@
 
 ## 1. Identificação
 
-| Campo | Informação |
-|---|---|
-| **Projeto** | MenuFlow — Cardápio Digital |
-| **Autor** | Nicolas Boese |
-| **Tema** | Sistema web para visualização de cardápio e gerenciamento de pedidos |
-| **Tipo de aplicação** | Front-end web com API fake (JSON Server) |
+| Campo                     | Informação                                                           |
+| ------------------------- | -------------------------------------------------------------------- |
+| **Projeto**               | MenuFlow — Cardápio Digital                                          |
+| **Autor**                 | Nicolas Boese                                                        |
+| **Tema**                  | Sistema web para visualização de cardápio e gerenciamento de pedidos |
+| **Tipo de aplicação**     | Front-end web com API fake (JSON Server)                              |
 
 ## 2. Descrição do Projeto
 
@@ -52,7 +52,7 @@ Pessoa que acessa a área pública para consultar o cardápio e realizar pedidos
 
 Responsável pela manutenção do cardápio e pelo acompanhamento dos pedidos. A área administrativa será acessada por uma tela de login demonstrativa, com credenciais previamente definidas no projeto.
 
-> **Limitação do protótipo:** como a aplicação utiliza front-end e JSON Server, sem um backend com autenticação e autorização, o login administrativo terá finalidade demonstrativa. Ele não representa um mecanismo seguro para proteger dados em produção.
+**Limitação do protótipo:** como a aplicação utiliza front-end e JSON Server, sem um backend com autenticação e autorização, o login administrativo terá finalidade demonstrativa. Ele não representa um mecanismo seguro para proteger dados em produção.
 
 ## 6. Histórias de Usuário e Escopo Funcional
 
@@ -60,41 +60,41 @@ As histórias abaixo representam o escopo planejado para a aplicação.
 
 ### 6.1 Acesso e navegação
 
-- [ ] **US01 — Acesso ao cardápio:** Como visitante, quero acessar o cardápio digital para visualizar os produtos disponíveis no estabelecimento.
-- [ ] **US02 — Acesso administrativo:** Como administrador, quero acessar uma área administrativa por meio de uma tela de login para utilizar as funcionalidades de gerenciamento.
-- [ ] **US03 — Navegação responsiva:** Como usuário, quero utilizar o sistema em dispositivos móveis e desktops para acessar suas funcionalidades em diferentes tamanhos de tela.
+- [x] **US01 — Acesso ao cardápio:** Como visitante, quero acessar o cardápio digital para visualizar os produtos disponíveis no estabelecimento.
+- [ ] **US02 — Acesso administrativo:** Como administrador, quero acessar uma área administrativa por meio de uma tela de login para utilizar as funcionalidades de gerenciamento. *(interface pronta na Atividade 08; lógica pendente)*
+- [x] **US03 — Navegação responsiva:** Como usuário, quero utilizar o sistema em dispositivos móveis e desktops para acessar suas funcionalidades em diferentes tamanhos de tela.
 
 ### 6.2 Gerenciamento de produtos
 
-- [ ] **US04 — Cadastro de produto:** Como administrador, quero cadastrar um produto informando nome, descrição, categoria, preço e imagem para disponibilizá-lo no cardápio.
-- [ ] **US05 — Listagem de produtos:** Como administrador, quero visualizar os produtos cadastrados em uma listagem para consultar o cardápio gerenciado.
-- [ ] **US06 — Edição de produto:** Como administrador, quero editar as informações de um produto para manter seus dados atualizados.
-- [ ] **US07 — Exclusão de produto:** Como administrador, quero remover um produto para retirar do sistema itens que não serão mais oferecidos.
-- [ ] **US08 — Disponibilidade:** Como administrador, quero marcar um produto como disponível ou indisponível para controlar sua exibição e possibilidade de pedido.
+- [ ] **US04 — Cadastro de produto:** Como administrador, quero cadastrar um produto informando nome, descrição, categoria, preço e imagem para disponibilizá-lo no cardápio. *(interface pronta na Atividade 08; lógica pendente)*
+- [ ] **US05 — Listagem de produtos:** Como administrador, quero visualizar os produtos cadastrados em uma listagem para consultar o cardápio gerenciado. *(interface pronta na Atividade 08; lógica pendente)*
+- [ ] **US06 — Edição de produto:** Como administrador, quero editar as informações de um produto para manter seus dados atualizados. *(interface pronta na Atividade 08; lógica pendente)*
+- [ ] **US07 — Exclusão de produto:** Como administrador, quero remover um produto para retirar do sistema itens que não serão mais oferecidos. *(interface pronta na Atividade 08; lógica pendente)*
+- [ ] **US08 — Disponibilidade:** Como administrador, quero marcar um produto como disponível ou indisponível para controlar sua exibição e possibilidade de pedido. *(interface pronta na Atividade 08; lógica pendente)*
 
 ### 6.3 Consulta do cardápio e carrinho
 
-- [ ] **US09 — Visualização de produtos:** Como cliente, quero visualizar os produtos com nome, descrição, imagem e preço para escolher o que desejo pedir.
-- [ ] **US10 — Busca e categorias:** Como cliente, quero pesquisar produtos e filtrar por categoria para encontrar itens com mais facilidade.
-- [ ] **US11 — Adicionar ao carrinho:** Como cliente, quero adicionar produtos ao carrinho para reunir os itens que desejo solicitar.
-- [ ] **US12 — Alterar carrinho:** Como cliente, quero alterar quantidades ou remover itens do carrinho para ajustar meu pedido.
+- [ ] **US09 — Visualização de produtos:** Como cliente, quero visualizar os produtos com nome, descrição, imagem e preço para escolher o que desejo pedir. *(interface pronta na Atividade 08; lógica pendente)*
+- [ ] **US10 — Busca e categorias:** Como cliente, quero pesquisar produtos e filtrar por categoria para encontrar itens com mais facilidade. *(interface pronta na Atividade 08; lógica pendente)*
+- [ ] **US11 — Adicionar ao carrinho:** Como cliente, quero adicionar produtos ao carrinho para reunir os itens que desejo solicitar. *(interface pronta na Atividade 08; lógica pendente)*
+- [ ] **US12 — Alterar carrinho:** Como cliente, quero alterar quantidades ou remover itens do carrinho para ajustar meu pedido. *(interface pronta na Atividade 08; lógica pendente)*
 - [ ] **US13 — Persistência do carrinho:** Como cliente, quero que os itens do carrinho permaneçam salvos durante a navegação e após atualizar a página para não perder meu pedido.
-- [ ] **US14 — Visualizar total:** Como cliente, quero visualizar o valor total do carrinho para saber quanto custará meu pedido antes de finalizá-lo.
+- [ ] **US14 — Visualizar total:** Como cliente, quero visualizar o valor total do carrinho para saber quanto custará meu pedido antes de finalizá-lo. *(interface pronta na Atividade 08; lógica pendente)*
 
 ### 6.4 Identificação e registro de pedidos
 
-- [ ] **US15 — Informar dados do cliente:** Como cliente, quero informar meu nome e telefone ao finalizar o pedido para que o estabelecimento saiba quem realizou a solicitação.
-- [ ] **US16 — Informar modalidade:** Como cliente, quero selecionar a modalidade do pedido (retirada no local ou consumo no estabelecimento) para indicar como pretendo receber ou consumir os itens.
-- [ ] **US17 — Adicionar observação:** Como cliente, quero incluir uma observação opcional para informar detalhes relevantes sobre meu pedido.
-- [ ] **US18 — Finalizar pedido:** Como cliente, quero confirmar meu carrinho e enviar o pedido para que o estabelecimento possa recebê-lo e prepará-lo.
-- [ ] **US19 — Confirmação:** Como cliente, quero receber uma confirmação visual após o envio para saber que meu pedido foi registrado.
+- [ ] **US15 — Informar dados do cliente:** Como cliente, quero informar meu nome e telefone ao finalizar o pedido para que o estabelecimento saiba quem realizou a solicitação. *(interface pronta na Atividade 08; lógica pendente)*
+- [ ] **US16 — Informar modalidade:** Como cliente, quero selecionar a modalidade do pedido (retirada no local ou consumo no estabelecimento) para indicar como pretendo receber ou consumir os itens. *(interface pronta na Atividade 08; lógica pendente)*
+- [ ] **US17 — Adicionar observação:** Como cliente, quero incluir uma observação opcional para informar detalhes relevantes sobre meu pedido. *(interface pronta na Atividade 08; lógica pendente)*
+- [ ] **US18 — Finalizar pedido:** Como cliente, quero confirmar meu carrinho e enviar o pedido para que o estabelecimento possa recebê-lo e prepará-lo. *(interface pronta na Atividade 08; lógica pendente)*
+- [ ] **US19 — Confirmação:** Como cliente, quero receber uma confirmação visual após o envio para saber que meu pedido foi registrado. *(interface pronta na Atividade 08; lógica pendente)*
 
 ### 6.5 Administração de pedidos
 
-- [ ] **US20 — Consultar pedidos:** Como administrador, quero visualizar os pedidos recebidos com identificação do cliente, itens, valor, data e status para acompanhar as solicitações.
-- [ ] **US21 — Consultar detalhes:** Como administrador, quero visualizar os detalhes de um pedido para conferir os produtos e as observações informadas.
-- [ ] **US22 — Atualizar status:** Como administrador, quero alterar o status de um pedido para informar se está pendente, em preparo ou concluído.
-- [ ] **US23 — Resumo administrativo:** Como administrador, quero visualizar indicadores simples, como quantidade de produtos e pedidos pendentes, para acompanhar o funcionamento do sistema.
+- [ ] **US20 — Consultar pedidos:** Como administrador, quero visualizar os pedidos recebidos com identificação do cliente, itens, valor, data e status para acompanhar as solicitações. *(interface pronta na Atividade 08; lógica pendente)*
+- [ ] **US21 — Consultar detalhes:** Como administrador, quero visualizar os detalhes de um pedido para conferir os produtos e as observações informadas. *(interface pronta na Atividade 08; lógica pendente)*
+- [ ] **US22 — Atualizar status:** Como administrador, quero alterar o status de um pedido para informar se está pendente, em preparo ou concluído. *(interface pronta na Atividade 08; lógica pendente)*
+- [ ] **US23 — Resumo administrativo:** Como administrador, quero visualizar indicadores simples, como quantidade de produtos e pedidos pendentes, para acompanhar o funcionamento do sistema. *(interface pronta na Atividade 08; lógica pendente)*
 
 ## 7. Regras de Negócio
 
@@ -136,11 +136,11 @@ Para manter o projeto compatível com os objetivos acadêmicos e com o escopo m�
 
 O projeto será considerado funcional quando:
 
-- Existirem ao menos três páginas HTML distintas e responsivas.
-- O administrador conseguir cadastrar e consultar produtos por meio da API.
-- O cliente conseguir consultar os produtos disponibilizados pela API.
-- O carrinho utilizar Web Storage para preservar os itens.
-- O cliente conseguir enviar um pedido com nome, telefone, modalidade e ao menos um produto.
-- O pedido for persistido na API e aparecer na área administrativa com os dados do cliente.
-- O administrador conseguir consultar os detalhes e atualizar o status do pedido.
-- Os formulários possuírem campos obrigatórios e validação no lado cliente.
+- [x] Existirem ao menos três páginas HTML distintas e responsivas.
+- [ ] O administrador conseguir cadastrar e consultar produtos por meio da API.
+- [ ] O cliente conseguir consultar os produtos disponibilizados pela API.
+- [ ] O carrinho utilizar Web Storage para preservar os itens.
+- [ ] O cliente conseguir enviar um pedido com nome, telefone, modalidade e ao menos um produto.
+- [ ] O pedido for persistido na API e aparecer na área administrativa com os dados do cliente.
+- [ ] O administrador conseguir consultar os detalhes e atualizar o status do pedido.
+- [ ] Os formulários possuírem campos obrigatórios e validação no lado cliente.

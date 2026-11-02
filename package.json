@@ -1,31 +1,35 @@
 {
-  "name": "menuflow",
-  "version": "1.0.0",
-  "description": "O **MenuFlow** é uma aplicação web de cardápio digital e gerenciamento de pedidos. O sistema possui uma área pública, na qual os clientes consultam produtos, montam um carrinho e registram pedidos, e uma área administrativa, destinada ao gerenciamento de produtos e ao acompanhamento dos pedidos.",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lolo-irl/MenuFlow.git"
-  },
-  "keywords": [],
-  "author": "Nicolas Boese",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/lolo-irl/MenuFlow/issues"
-  },
-  "homepage": "https://github.com/lolo-irl/MenuFlow#readme",
-  "dependencies": {
-    "jquery": "^4.0.0",
-    "uuid": "^14.0.3"
-  },
-  "devDependencies": {
-    "gh-pages": "^6.3.0"
-  }
+    "name": "menuflow",
+    "version": "1.0.0",
+    "description": "O **MenuFlow** é uma aplicação web de cardápio digital e gerenciamento de pedidos. O sistema possui uma área pública, na qual os clientes consultam produtos, montam um carrinho e registram pedidos, e uma área administrativa, destinada ao gerenciamento de produtos e ao acompanhamento dos pedidos.",
+    "main": "index.js",
+    "directories": {
+        "doc": "docs"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "format": "prettier --write .",
+        "format:check": "prettier --check ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lolo-irl/MenuFlow.git"
+    },
+    "keywords": [],
+    "author": "Nicolas Boese",
+    "license": "ISC",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/lolo-irl/MenuFlow/issues"
+    },
+    "homepage": "https://github.com/lolo-irl/MenuFlow#readme",
+    "dependencies": {
+        "bootstrap": "^5.3.8",
+        "jquery": "^4.0.0",
+        "uuid": "^14.0.3"
+    },
+    "devDependencies": {
+        "gh-pages": "^6.3.0",
+        "prettier": "^3.9.10"
+    }
 }

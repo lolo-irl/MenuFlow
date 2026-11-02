@@ -7,7 +7,9 @@
 
 O MenuFlow é uma aplicação web de cardápio digital que permite aos clientes consultar produtos, montar um carrinho e realizar pedidos. Também disponibiliza uma área administrativa para gerenciar produtos e acompanhar pedidos.
 
-A aplicação será desenvolvida utilizando HTML5, CSS3, Bootstrap 5 e JavaScript. Para simular a comunicação com o back-end, será utilizado o JSON Server, que disponibiliza uma API REST baseada em arquivos JSON.
+A aplicação será desenvolvida utilizando HTML5, CSS3, Bootstrap 5.3 e JavaScript. Para simular a comunicação com o back-end, será utilizado o JSON Server, que disponibiliza uma API REST baseada em arquivos JSON.
+
+**Situação atual:** a interface das sete páginas HTML está pronta e responsiva. A implementação da lógica, incluindo JavaScript, JSON Server, localStorage e validações, ficará para as próximas atividades.
 
 ## 2. Arquitetura da aplicação
 
@@ -40,21 +42,24 @@ Disponibiliza as funcionalidades utilizadas pelo administrador:
 
 ## 3. Tecnologias utilizadas
 
-| Tecnologia | Finalidade |
-|---|---|
-| HTML5 | Estrutura das páginas |
-| CSS3 | Estilização |
-| Bootstrap 5 | Componentes e responsividade |
-| JavaScript | Lógica e interatividade |
-| jQuery | Manipulação do DOM e integração com plugins |
-| jQuery Mask Plugin | Máscara para campos de telefone |
-| JSON Server | Simulação de uma API REST |
-| Fetch API | Comunicação assíncrona com a API |
-| localStorage | Persistência local do carrinho |
-| Node.js e NPM | Gerenciamento do ambiente e dependências |
-| Sass | Organização e compilação dos estilos |
-| ESLint | Padronização e análise do código JavaScript |
-| Prettier | Formatação do código |
+| Tecnologia/Ferramenta | Finalidade | Situação |
+| --------------------- | ---------- | -------- |
+| HTML5 | Estrutura das páginas | Em uso |
+| CSS3 | Estilização | Em uso |
+| Bootstrap 5.3 | Componentes e responsividade (instalado via NPM e consumido localmente, sem CDN) | Em uso |
+| JavaScript | Lógica e interatividade | Planejado |
+| jQuery | Manipulação do DOM e integração com plugins | Planejado |
+| jQuery Mask Plugin | Máscara para campos de telefone | Planejado |
+| JSON Server | Simulação de uma API REST | Planejado |
+| Fetch API | Comunicação assíncrona com a API | Planejado |
+| localStorage | Persistência local do carrinho | Planejado |
+| Node.js e NPM | Gerenciamento do ambiente e dependências | Em uso |
+| Sass | Organização e compilação dos estilos | Planejado |
+| ESLint | Padronização e análise do código JavaScript | Planejado |
+| Prettier | Formatação do código | Em uso |
+| Stitch | Prototipação das interfaces | Utilizado na Atividade 08 |
+| Google AI Studio | Geração inicial das páginas HTML a partir dos protótipos | Utilizado na Atividade 08 |
+| Claude | Revisão do código com base nas regras do projeto | Utilizado na Atividade 08 |
 
 ## 4. Modelo de dados
 
@@ -298,34 +303,37 @@ Os status previstos são:
 - O carrinho somente será limpo após a confirmação da criação do pedido e de seus itens.
 - O administrador poderá alterar o status dos pedidos.
 
-## 11. Estrutura de diretórios planejada
+## 11. Estrutura de diretórios
+
+A estrutura atual do projeto está organizada da seguinte maneira:
 
 ```
-menuflow/
-│
-├── admin/
-│   ├── login.html
-│   ├── dashboard.html
-│   ├── produtos.html
-│   └── pedidos.html
-│
-├── assets/
-│   ├── css/
-│   ├── js/
-│   └── images/
-│
+MenuFlow/
+├── index.html
+├── pages/
+│   ├── client/
+│   │   ├── cardapio.html
+│   │   └── finalizar-pedido.html
+│   └── admin/
+│       ├── login.html
+│       ├── dashboard.html
+│       ├── produtos.html
+│       └── pedidos.html
+├── styles/
+│   └── styles.css
+├── assets/ (planejado)
+│   ├── js/ (planejado)
+│   └── images/ (planejado)
 ├── docs/
 │   ├── prd.md
 │   └── architecture.md
-│
-├── index.html
-├── cardapio.html
-├── finalizar-pedido.html
-│
-├── db.json
+├── db.json (planejado)
 ├── package.json
+├── .prettierrc
 └── README.md
 ```
+
+Em relação ao planejamento anterior, as páginas administrativas foram organizadas dentro de `pages/admin/`, as páginas públicas dentro de `pages/client/` e os estilos passaram a ficar em `styles/`, em vez de `assets/css/`. As pastas `assets/js`, `assets/images` e o arquivo `db.json` ainda não existem e permanecem planejados.
 
 ## 12. Considerações técnicas e limitações
 
@@ -337,5 +345,4 @@ Caso o projeto seja publicado no GitHub Pages, será necessário hospedar a API 
 
 Para uma aplicação real, seria necessário implementar um back-end próprio, autenticação segura, autorização de usuários e validações no servidor.
 
-```
-```
+A pasta `node_modules` não é versionada no Git, pois está incluída no `.gitignore`. Como o Bootstrap é consumido localmente a partir dessa pasta, uma publicação no GitHub Pages ficará sem os estilos do framework caso os arquivos não sejam disponibilizados. Será necessário configurar uma etapa de build ou copiar os arquivos do Bootstrap para que a versão publicada funcione corretamente.

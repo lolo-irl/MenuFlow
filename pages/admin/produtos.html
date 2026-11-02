@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gerenciamento de Produtos - MenuFlow Admin</title>
+        <meta
+            name="description"
+            content="Cadastro, edição, exclusão e controle de disponibilidade de produtos no MenuFlow."
+        />
+
+        <!-- Folha de estilos local do Bootstrap 5.3 -->
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+        <!-- Tema oficial MenuFlow em styles/styles.css (carregado após o Bootstrap) -->
+        <link rel="stylesheet" href="../../styles/styles.css" />
+    </head>
+    <body class="min-vh-100 d-flex flex-column">
+        <!-- ================================================================= -->
+        <!-- NAVBAR ADMINISTRATIVA RESPONSIVA COM OFFCANVAS NATIVO BOOTSTRAP   -->
+        <!-- ================================================================= -->
+        <header class="sticky-top bg-white border-bottom shadow-sm">
+            <nav class="navbar navbar-expand-lg py-2">
+                <div class="container-xl">
+                    <a
+                        class="navbar-brand d-flex align-items-center gap-2 text-decoration-none"
+                        href="dashboard.html"
+                    >
+                        <div
+                            class="d-flex align-items-center justify-content-center bg-primary rounded-3 text-white"
+                            style="width: 40px; height: 40px"
+                        >
+                            <svg
+                                width="22"
+                                height="22"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <span class="fs-5 fw-bold text-dark lh-1">MenuFlow</span>
+                            <small class="text-secondary small" style="font-size: 0.72rem"
+                                >Painel Admin</small
+                            >
+                        </div>
+                    </a>
+
+                    <!-- Botão Toggle para Navegação Mobile -->
+                    <button
+                        class="navbar-toggler border-0 p-1 ms-auto d-lg-none me-2"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasAdminNav"
+                        aria-controls="offcanvasAdminNav"
+                        aria-label="Abrir menu administrativo"
+                    >
+                        <svg
+                            width="26"
+                            height="26"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+
+                    <!-- Conteúdo do Menu Desktop e Offcanvas Mobile -->
+                    <div
+                        class="offcanvas offcanvas-end"
+                        tabindex="-1"
+                        id="offcanvasAdminNav"
+                        aria-labelledby="offcanvasAdminNavLabel"
+                    >
+                        <div class="offcanvas-header border-bottom">
+                            <div class="d-flex align-items-center gap-2">
+                                <div
+                                    class="d-flex align-items-center justify-content-center bg-primary rounded-3 text-white"
+                                    style="width: 32px; height: 32px"
+                                >
+                                    <svg
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <rect
+                                            x="2"
+                                            y="3"
+                                            width="20"
+                                            height="14"
+                                            rx="2"
+                                            ry="2"
+                                        ></rect>
+                                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    </svg>
+                                </div>
+                                <h5
+                                    class="offcanvas-title fw-bold text-dark m-0"
+                                    id="offcanvasAdminNavLabel"
+                                >
+                                    MenuFlow Admin
+                                </h5>
+                            </div>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="offcanvas"
+                                aria-label="Fechar menu"
+                            ></button>
+                        </div>
+
+                        <div
+                            class="offcanvas-body d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between gap-3 p-3 p-lg-0"
+                        >
+                            <!-- Links da Área Administrativa -->
+                            <ul class="navbar-nav me-lg-auto gap-1">
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link text-secondary fw-semibold px-3 py-2 rounded-3 text-nowrap"
+                                        href="dashboard.html"
+                                    >
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link text-secondary fw-semibold px-3 py-2 rounded-3 text-nowrap"
+                                        href="pedidos.html"
+                                    >
+                                        Pedidos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link active fw-bold text-primary px-3 py-2 rounded-3 bg-primary-subtle text-nowrap"
+                                        aria-current="page"
+                                        href="produtos.html"
+                                    >
+                                        Produtos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link text-secondary fw-semibold px-3 py-2 rounded-3 text-nowrap"
+                                        href="../client/cardapio.html"
+                                    >
+                                        Ver Cardápio Público ↗
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <hr class="d-lg-none m-0" />
+
+                            <div class="d-flex align-items-center gap-3 ms-lg-auto">
+                                <span class="text-secondary small">Administrador</span>
+                                <a
+                                    href="login.html"
+                                    class="btn btn-outline-danger btn-sm rounded-3 py-1 px-3"
+                                    title="Sair do painel administrativo"
+                                >
+                                    Sair
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- ================================================================= -->
+        <!-- CONTEÚDO PRINCIPAL: GERENCIAMENTO DE PRODUTOS                    -->
+        <!-- ================================================================= -->
+        <main class="flex-grow-1 py-4">
+            <div class="container-xl">
+                <!-- CABEÇALHO DA TELA & BOTÃO NOVO PRODUTO -->
+                <section class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+                    <div
+                        class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3"
+                    >
+                        <div>
+                            <h1 class="h3 fw-bold text-dark mb-1">Gerenciamento de Produtos</h1>
+                            <p class="text-secondary small mb-0">
+                                Cadastre, edite, exclua e altere a disponibilidade dos produtos
+                                exibidos no cardápio.
+                            </p>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn btn-primary rounded-3 d-flex align-items-center gap-2"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalNovoProduto"
+                        >
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="12" y2="12"></line>
+                            </svg>
+                            <span>+ Novo Produto</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- TABELA DE PRODUTOS (PRODUTO TEM APENAS: IMAGEM, NOME, DESCRIÇÃO, CATEGORIA, PREÇO, DISPONIBILIDADE) -->
+                <section class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead
+                                class="table-light small text-secondary text-uppercase"
+                                style="font-size: 0.75rem"
+                            >
+                                <tr>
+                                    <th scope="col" class="py-3 ps-3">Imagem</th>
+                                    <th scope="col" class="py-3">Nome &amp; Descrição</th>
+                                    <th scope="col" class="py-3">Categoria</th>
+                                    <th scope="col" class="py-3">Preço</th>
+                                    <th scope="col" class="py-3 text-center">Disponibilidade</th>
+                                    <th scope="col" class="py-3 text-end pe-3">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody class="small">
+                                <!-- Produto 1 -->
+                                <tr>
+                                    <td class="ps-3" style="width: 70px">
+                                        <div
+                                            class="bg-secondary-subtle rounded-3 d-flex align-items-center justify-content-center"
+                                            style="width: 48px; height: 48px"
+                                        >
+                                            <span class="fs-4">🍔</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong class="text-dark d-block"
+                                            >Burger Artesanal Blend 180g</strong
+                                        >
+                                        <span
+                                            class="text-secondary small text-truncate d-block"
+                                            style="max-width: 320px"
+                                        >
+                                            Pão brioche selado na manteiga, hambúrguer de costela,
+                                            queijo cheddar, cebola e bacon.
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-light text-dark border"
+                                            >Hambúrgueres</span
+                                        >
+                                    </td>
+                                    <td><strong class="text-dark">R$ 36,90</strong></td>
+                                    <td class="text-center">
+                                        <span
+                                            class="badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle px-2 py-1"
+                                            >Disponível</span
+                                        >
+                                    </td>
+                                    <td class="text-end pe-3">
+                                        <div class="btn-group btn-group-sm">
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-secondary"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalEditarProduto"
+                                                title="Editar produto"
+                                            >
+                                                Editar
+                                            </button>
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-danger"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalExcluirProduto"
+                                                title="Excluir produto"
+                                            >
+                                                Excluir
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- Produto 2 -->
+                                <tr>
+                                    <td class="ps-3" style="width: 70px">
+                                        <div
+                                            class="bg-secondary-subtle rounded-3 d-flex align-items-center justify-content-center"
+                                            style="width: 48px; height: 48px"
+                                        >
+                                            <span class="fs-4">🍔</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong class="text-dark d-block"
+                                            >Smash Duplo Trufado</strong
+                                        >
+                                        <span
+                                            class="text-secondary small text-truncate d-block"
+                                            style="max-width: 320px"
+                                        >
+                                            Dois smash burgers de 90g com crosta caramelizada,
+                                            american cheese e maionese trufada.
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-light text-dark border"
+                                            >Hambúrgueres</span
+                                        >
+                                    </td>
+                                    <td><strong class="text-dark">R$ 38,90</strong></td>
+                                    <td class="text-center">
+                                        <span
+                                            class="badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle px-2 py-1"
+                                            >Disponível</span
+                                        >
+                                    </td>
+                                    <td class="text-end pe-3">
+                                        <div class="btn-group btn-group-sm">
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-secondary"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalEditarProduto"
+                                                title="Editar produto"
+                                            >
+                                                Editar
+                                            </button>
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-danger"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalExcluirProduto"
+                                                title="Excluir produto"
+                                            >
+                                                Excluir
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- Produto 3 -->
+                                <tr>
+                                    <td class="ps-3" style="width: 70px">
+                                        <div
+                                            class="bg-secondary-subtle rounded-3 d-flex align-items-center justify-content-center"
+                                            style="width: 48px; height: 48px"
+                                        >
+                                            <span class="fs-4">🍕</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong class="text-dark d-block"
+                                            >Pizza Margherita Napolitana</strong
+                                        >
+                                        <span
+                                            class="text-secondary small text-truncate d-block"
+                                            style="max-width: 320px"
+                                        >
+                                            Massa de fermentação 48h, molho San Marzano DOP,
+                                            mozzarella di bufala campana e manjericão.
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-light text-dark border">Pizzas</span>
+                                    </td>
+                                    <td><strong class="text-dark">R$ 42,00</strong></td>
+                                    <td class="text-center">
+                                        <span
+                                            class="badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle px-2 py-1"
+                                            >Disponível</span
+                                        >
+                                    </td>
+                                    <td class="text-end pe-3">
+                                        <div class="btn-group btn-group-sm">
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-secondary"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalEditarProduto"
+                                                title="Editar produto"
+                                            >
+                                                Editar
+                                            </button>
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-danger"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalExcluirProduto"
+                                                title="Excluir produto"
+                                            >
+                                                Excluir
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- Produto 4 -->
+                                <tr>
+                                    <td class="ps-3" style="width: 70px">
+                                        <div
+                                            class="bg-secondary-subtle rounded-3 d-flex align-items-center justify-content-center"
+                                            style="width: 48px; height: 48px"
+                                        >
+                                            <span class="fs-4">🍨</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong class="text-dark d-block"
+                                            >Petit Gâteau com Baunilha</strong
+                                        >
+                                        <span
+                                            class="text-secondary small text-truncate d-block"
+                                            style="max-width: 320px"
+                                        >
+                                            Bolo de chocolate meio amargo 70% com recheio cremoso e
+                                            sorvete de baunilha.
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-light text-dark border"
+                                            >Sobremesas</span
+                                        >
+                                    </td>
+                                    <td><strong class="text-dark">R$ 24,50</strong></td>
+                                    <td class="text-center">
+                                        <span
+                                            class="badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle px-2 py-1"
+                                            >Disponível</span
+                                        >
+                                    </td>
+                                    <td class="text-end pe-3">
+                                        <div class="btn-group btn-group-sm">
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-secondary"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalEditarProduto"
+                                                title="Editar produto"
+                                            >
+                                                Editar
+                                            </button>
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-danger"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalExcluirProduto"
+                                                title="Excluir produto"
+                                            >
+                                                Excluir
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- Produto 5 (Indisponível) -->
+                                <tr class="table-light">
+                                    <td class="ps-3" style="width: 70px">
+                                        <div
+                                            class="bg-secondary-subtle rounded-3 d-flex align-items-center justify-content-center opacity-50"
+                                            style="width: 48px; height: 48px"
+                                        >
+                                            <span class="fs-4">🧁</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong
+                                            class="text-muted d-block text-decoration-line-through"
+                                            >Petit Gâteau de Doce de Leite</strong
+                                        >
+                                        <span
+                                            class="text-secondary small text-truncate d-block"
+                                            style="max-width: 320px"
+                                        >
+                                            Versão especial com recheio de doce de leite uruguaio
+                                            aquecido.
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-light text-dark border"
+                                            >Sobremesas</span
+                                        >
+                                    </td>
+                                    <td><strong class="text-secondary">R$ 26,00</strong></td>
+                                    <td class="text-center">
+                                        <span
+                                            class="badge rounded-pill bg-danger-subtle text-danger-emphasis border border-danger-subtle px-2 py-1"
+                                            >Indisponível</span
+                                        >
+                                    </td>
+                                    <td class="text-end pe-3">
+                                        <div class="btn-group btn-group-sm">
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-secondary"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalEditarProduto"
+                                                title="Editar produto"
+                                            >
+                                                Editar
+                                            </button>
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-danger"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalExcluirProduto"
+                                                title="Excluir produto"
+                                            >
+                                                Excluir
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- Produto 6 (Indisponível) -->
+                                <tr class="table-light">
+                                    <td class="ps-3" style="width: 70px">
+                                        <div
+                                            class="bg-secondary-subtle rounded-3 d-flex align-items-center justify-content-center opacity-50"
+                                            style="width: 48px; height: 48px"
+                                        >
+                                            <span class="fs-4">🍊</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong
+                                            class="text-muted d-block text-decoration-line-through"
+                                            >Suco de Tangerina 500ml</strong
+                                        >
+                                        <span
+                                            class="text-secondary small text-truncate d-block"
+                                            style="max-width: 320px"
+                                        >
+                                            Suco fresco prensado de tangerinas selecionadas da
+                                            estação.
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-light text-dark border">Bebidas</span>
+                                    </td>
+                                    <td><strong class="text-secondary">R$ 13,00</strong></td>
+                                    <td class="text-center">
+                                        <span
+                                            class="badge rounded-pill bg-danger-subtle text-danger-emphasis border border-danger-subtle px-2 py-1"
+                                            >Indisponível</span
+                                        >
+                                    </td>
+                                    <td class="text-end pe-3">
+                                        <div class="btn-group btn-group-sm">
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-secondary"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalEditarProduto"
+                                                title="Editar produto"
+                                            >
+                                                Editar
+                                            </button>
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-danger"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalExcluirProduto"
+                                                title="Excluir produto"
+                                            >
+                                                Excluir
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- ================================================================= -->
+        <!-- MODAL: CADASTRAR NOVO PRODUTO                                     -->
+        <!-- ================================================================= -->
+        <div
+            class="modal fade"
+            id="modalNovoProduto"
+            tabindex="-1"
+            aria-labelledby="modalNovoProdutoLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content rounded-4 border-0 shadow">
+                    <div class="modal-header border-bottom">
+                        <h5 class="modal-title fw-bold text-dark m-0" id="modalNovoProdutoLabel">
+                            Cadastrar Novo Produto
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Fechar modal"
+                        ></button>
+                    </div>
+
+                    <form id="form-novo-produto" action="#" method="post">
+                        <div class="modal-body p-4">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label
+                                        for="cad-produto-nome"
+                                        class="form-label small fw-bold text-dark"
+                                        >Nome do Produto:</label
+                                    >
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="cad-produto-nome"
+                                        placeholder="Ex.: Burger Especial"
+                                        required
+                                    />
+                                </div>
+
+                                <div class="col-12 col-sm-6">
+                                    <label
+                                        for="cad-produto-categoria"
+                                        class="form-label small fw-bold text-dark"
+                                        >Categoria:</label
+                                    >
+                                    <select class="form-select" id="cad-produto-categoria" required>
+                                        <option value="" disabled selected>Selecione...</option>
+                                        <option value="Hambúrgueres">Hambúrgueres</option>
+                                        <option value="Pizzas">Pizzas</option>
+                                        <option value="Acompanhamentos">Acompanhamentos</option>
+                                        <option value="Sobremesas">Sobremesas</option>
+                                        <option value="Bebidas">Bebidas</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-sm-6">
+                                    <label
+                                        for="cad-produto-preco"
+                                        class="form-label small fw-bold text-dark"
+                                        >Preço (R$):</label
+                                    >
+                                    <input
+                                        type="number"
+                                        step="0.01"
+                                        class="form-control"
+                                        id="cad-produto-preco"
+                                        placeholder="0.00"
+                                        required
+                                    />
+                                </div>
+
+                                <div class="col-12">
+                                    <label
+                                        for="cad-produto-descricao"
+                                        class="form-label small fw-bold text-dark"
+                                        >Descrição:</label
+                                    >
+                                    <textarea
+                                        class="form-control"
+                                        id="cad-produto-descricao"
+                                        rows="3"
+                                        placeholder="Descrição do produto."
+                                        required
+                                    ></textarea>
+                                </div>
+
+                                <div class="col-12">
+                                    <label
+                                        for="cad-produto-imagem"
+                                        class="form-label small fw-bold text-dark"
+                                        >Imagem (caminho ou URL):</label
+                                    >
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="cad-produto-imagem"
+                                        placeholder="assets/burger.jpg"
+                                    />
+                                </div>
+
+                                <div class="col-12">
+                                    <label
+                                        for="cad-produto-disponibilidade"
+                                        class="form-label small fw-bold text-dark"
+                                        >Disponibilidade:</label
+                                    >
+                                    <select
+                                        class="form-select"
+                                        id="cad-produto-disponibilidade"
+                                        required
+                                    >
+                                        <option value="Disponível" selected>Disponível</option>
+                                        <option value="Indisponível">Indisponível</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer border-top bg-light">
+                            <button
+                                type="button"
+                                class="btn btn-outline-secondary rounded-3"
+                                data-bs-dismiss="modal"
+                            >
+                                Cancelar
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-primary rounded-3"
+                                data-bs-dismiss="modal"
+                            >
+                                Salvar Produto
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- MODAL: EDITAR PRODUTO                                             -->
+        <!-- ================================================================= -->
+        <div
+            class="modal fade"
+            id="modalEditarProduto"
+            tabindex="-1"
+            aria-labelledby="modalEditarProdutoLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content rounded-4 border-0 shadow">
+                    <div class="modal-header border-bottom">
+                        <h5 class="modal-title fw-bold text-dark m-0" id="modalEditarProdutoLabel">
+                            Editar Produto
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Fechar modal"
+                        ></button>
+                    </div>
+
+                    <form id="form-editar-produto" action="#" method="post">
+                        <div class="modal-body p-4">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label
+                                        for="edit-produto-nome"
+                                        class="form-label small fw-bold text-dark"
+                                        >Nome do Produto:</label
+                                    >
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="edit-produto-nome"
+                                        value="Burger Artesanal Blend 180g"
+                                        required
+                                    />
+                                </div>
+
+                                <div class="col-12 col-sm-6">
+                                    <label
+                                        for="edit-produto-categoria"
+                                        class="form-label small fw-bold text-dark"
+                                        >Categoria:</label
+                                    >
+                                    <select
+                                        class="form-select"
+                                        id="edit-produto-categoria"
+                                        required
+                                    >
+                                        <option value="Hambúrgueres" selected>Hambúrgueres</option>
+                                        <option value="Pizzas">Pizzas</option>
+                                        <option value="Acompanhamentos">Acompanhamentos</option>
+                                        <option value="Sobremesas">Sobremesas</option>
+                                        <option value="Bebidas">Bebidas</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-sm-6">
+                                    <label
+                                        for="edit-produto-preco"
+                                        class="form-label small fw-bold text-dark"
+                                        >Preço (R$):</label
+                                    >
+                                    <input
+                                        type="number"
+                                        step="0.01"
+                                        class="form-control"
+                                        id="edit-produto-preco"
+                                        value="36.90"
+                                        required
+                                    />
+                                </div>
+
+                                <div class="col-12">
+                                    <label
+                                        for="edit-produto-descricao"
+                                        class="form-label small fw-bold text-dark"
+                                        >Descrição:</label
+                                    >
+                                    <textarea
+                                        class="form-control"
+                                        id="edit-produto-descricao"
+                                        rows="3"
+                                        required
+                                    >
+Pão brioche selado na manteiga, hambúrguer de costela, queijo cheddar, cebola e bacon.</textarea>
+                                </div>
+
+                                <div class="col-12">
+                                    <label
+                                        for="edit-produto-imagem"
+                                        class="form-label small fw-bold text-dark"
+                                        >Imagem (caminho ou URL):</label
+                                    >
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="edit-produto-imagem"
+                                        value="assets/burger.jpg"
+                                    />
+                                </div>
+
+                                <div class="col-12">
+                                    <label
+                                        for="edit-produto-disponibilidade"
+                                        class="form-label small fw-bold text-dark"
+                                        >Disponibilidade:</label
+                                    >
+                                    <select
+                                        class="form-select"
+                                        id="edit-produto-disponibilidade"
+                                        required
+                                    >
+                                        <option value="Disponível" selected>Disponível</option>
+                                        <option value="Indisponível">Indisponível</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer border-top bg-light">
+                            <button
+                                type="button"
+                                class="btn btn-outline-secondary rounded-3"
+                                data-bs-dismiss="modal"
+                            >
+                                Cancelar
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-primary rounded-3"
+                                data-bs-dismiss="modal"
+                            >
+                                Salvar Alterações
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- MODAL: CONFIRMAR EXCLUSÃO                                         -->
+        <!-- ================================================================= -->
+        <div
+            class="modal fade"
+            id="modalExcluirProduto"
+            tabindex="-1"
+            aria-labelledby="modalExcluirProdutoLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content rounded-4 border-0 shadow">
+                    <div class="modal-header border-bottom">
+                        <h5
+                            class="modal-title fw-bold text-danger m-0"
+                            id="modalExcluirProdutoLabel"
+                        >
+                            Confirmar Exclusão
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Fechar modal"
+                        ></button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <p class="text-secondary mb-0">
+                            Tem certeza de que deseja remover este produto do cardápio?
+                        </p>
+                    </div>
+                    <div class="modal-footer border-top bg-light">
+                        <button
+                            type="button"
+                            class="btn btn-outline-secondary rounded-3"
+                            data-bs-dismiss="modal"
+                        >
+                            Cancelar
+                        </button>
+                        <button
+                            type="button"
+                            class="btn btn-danger rounded-3"
+                            data-bs-dismiss="modal"
+                        >
+                            Excluir Produto
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="mt-auto bg-white border-top py-3">
+            <div
+                class="container-xl d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 text-secondary small"
+            >
+                <div class="d-flex align-items-center gap-2">
+                    <span class="fw-bold text-dark">MenuFlow Admin</span>
+                    <span>• Painel Administrativo</span>
+                </div>
+                <div class="d-flex gap-3">
+                    <a href="dashboard.html" class="text-secondary text-decoration-none"
+                        >Dashboard</a
+                    >
+                    <a href="pedidos.html" class="text-secondary text-decoration-none">Pedidos</a>
+                    <a href="produtos.html" class="text-secondary text-decoration-none">Produtos</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Script local do Bootstrap 5.3 -->
+        <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard Geral - MenuFlow Admin</title>
+        <meta name="description" content="Visão geral e indicadores do estabelecimento MenuFlow." />
+
+        <!-- Folha de estilos local do Bootstrap 5.3 -->
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+        <!-- Tema oficial MenuFlow em styles/styles.css (carregado após o Bootstrap) -->
+        <link rel="stylesheet" href="../../styles/styles.css" />
+    </head>
+    <body class="min-vh-100 d-flex flex-column">
+        <!-- ================================================================= -->
+        <!-- NAVBAR ADMINISTRATIVA RESPONSIVA COM OFFCANVAS NATIVO BOOTSTRAP   -->
+        <!-- ================================================================= -->
+        <header class="sticky-top bg-white border-bottom shadow-sm">
+            <nav class="navbar navbar-expand-lg py-2">
+                <div class="container-xl">
+                    <a
+                        class="navbar-brand d-flex align-items-center gap-2 text-decoration-none"
+                        href="dashboard.html"
+                    >
+                        <div
+                            class="d-flex align-items-center justify-content-center bg-primary rounded-3 text-white"
+                            style="width: 40px; height: 40px"
+                        >
+                            <svg
+                                width="22"
+                                height="22"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <span class="fs-5 fw-bold text-dark lh-1">MenuFlow</span>
+                            <small class="text-secondary small" style="font-size: 0.72rem"
+                                >Painel Admin</small
+                            >
+                        </div>
+                    </a>
+
+                    <!-- Botão Toggle para Navegação Mobile -->
+                    <button
+                        class="navbar-toggler border-0 p-1 ms-auto d-lg-none me-2"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasAdminNav"
+                        aria-controls="offcanvasAdminNav"
+                        aria-label="Abrir menu administrativo"
+                    >
+                        <svg
+                            width="26"
+                            height="26"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+
+                    <!-- Conteúdo do Menu Desktop e Offcanvas Mobile -->
+                    <div
+                        class="offcanvas offcanvas-end"
+                        tabindex="-1"
+                        id="offcanvasAdminNav"
+                        aria-labelledby="offcanvasAdminNavLabel"
+                    >
+                        <div class="offcanvas-header border-bottom">
+                            <div class="d-flex align-items-center gap-2">
+                                <div
+                                    class="d-flex align-items-center justify-content-center bg-primary rounded-3 text-white"
+                                    style="width: 32px; height: 32px"
+                                >
+                                    <svg
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <rect
+                                            x="2"
+                                            y="3"
+                                            width="20"
+                                            height="14"
+                                            rx="2"
+                                            ry="2"
+                                        ></rect>
+                                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    </svg>
+                                </div>
+                                <h5
+                                    class="offcanvas-title fw-bold text-dark m-0"
+                                    id="offcanvasAdminNavLabel"
+                                >
+                                    MenuFlow Admin
+                                </h5>
+                            </div>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="offcanvas"
+                                aria-label="Fechar menu"
+                            ></button>
+                        </div>
+
+                        <div
+                            class="offcanvas-body d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between gap-3 p-3 p-lg-0"
+                        >
+                            <!-- Links da Área Administrativa -->
+                            <ul class="navbar-nav me-lg-auto gap-1">
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link active fw-bold text-primary px-3 py-2 rounded-3 bg-primary-subtle text-nowrap"
+                                        aria-current="page"
+                                        href="dashboard.html"
+                                    >
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link text-secondary fw-semibold px-3 py-2 rounded-3 text-nowrap"
+                                        href="pedidos.html"
+                                    >
+                                        Pedidos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link text-secondary fw-semibold px-3 py-2 rounded-3 text-nowrap"
+                                        href="produtos.html"
+                                    >
+                                        Produtos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link text-secondary fw-semibold px-3 py-2 rounded-3 text-nowrap"
+                                        href="../client/cardapio.html"
+                                    >
+                                        Ver Cardápio Público ↗
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <hr class="d-lg-none m-0" />
+
+                            <div class="d-flex align-items-center gap-3 ms-lg-auto">
+                                <span class="text-secondary small">Administrador</span>
+                                <a
+                                    href="login.html"
+                                    class="btn btn-outline-danger btn-sm rounded-3 py-1 px-3"
+                                    title="Sair do painel administrativo"
+                                >
+                                    Sair
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- ================================================================= -->
+        <!-- CONTEÚDO PRINCIPAL: DASHBOARD ADMINISTRATIVO                     -->
+        <!-- ================================================================= -->
+        <main class="flex-grow-1 py-4">
+            <div class="container-xl">
+                <!-- BANNER DE BOAS-VINDAS -->
+                <section class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+                    <div
+                        class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3"
+                    >
+                        <div>
+                            <h1 class="h3 fw-bold text-dark mb-1">Painel Administrativo</h1>
+                            <p class="text-secondary small mb-0">
+                                Resumo geral de produtos cadastrados e pedidos recebidos pelo
+                                sistema.
+                            </p>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="produtos.html" class="btn btn-outline-primary rounded-3">
+                                Gerenciar Produtos
+                            </a>
+                            <a href="pedidos.html" class="btn btn-primary rounded-3">
+                                Consultar Pedidos
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- INDICADORES PRINCIPAIS (KPIS) -->
+                <section class="row g-3 mb-4" aria-label="Indicadores gerais">
+                    <!-- Total de Pedidos -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+                            <span
+                                class="text-secondary small fw-bold text-uppercase"
+                                style="font-size: 0.75rem"
+                                >Total de Pedidos</span
+                            >
+                            <div class="display-6 fw-bold text-dark my-2">4</div>
+                            <small class="text-secondary">Pedidos registrados no sistema</small>
+                        </div>
+                    </div>
+
+                    <!-- Pedidos Pendentes -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+                            <span
+                                class="text-secondary small fw-bold text-uppercase"
+                                style="font-size: 0.75rem"
+                                >Pendentes</span
+                            >
+                            <div class="display-6 fw-bold text-warning-emphasis my-2">1</div>
+                            <small class="text-secondary">Aguardando início de preparo</small>
+                        </div>
+                    </div>
+
+                    <!-- Pedidos Em Preparo -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+                            <span
+                                class="text-secondary small fw-bold text-uppercase"
+                                style="font-size: 0.75rem"
+                                >Em Preparo</span
+                            >
+                            <div class="display-6 fw-bold text-primary my-2">2</div>
+                            <small class="text-secondary">Sendo preparados no momento</small>
+                        </div>
+                    </div>
+
+                    <!-- Produtos Cadastrados -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+                            <span
+                                class="text-secondary small fw-bold text-uppercase"
+                                style="font-size: 0.75rem"
+                                >Produtos</span
+                            >
+                            <div class="display-6 fw-bold text-dark my-2">9</div>
+                            <small class="text-secondary">7 disponíveis • 2 indisponíveis</small>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TABELA RESUMIDA DE PEDIDOS RECENTES -->
+                <section class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+                    <div
+                        class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3 mb-4"
+                    >
+                        <div>
+                            <h2 class="h5 fw-bold text-dark mb-1">Pedidos Recentes</h2>
+                            <p class="text-secondary small mb-0">
+                                Acompanhe as solicitações mais recentes dos clientes.
+                            </p>
+                        </div>
+                        <a href="pedidos.html" class="btn btn-outline-secondary btn-sm rounded-3">
+                            Ver Todos os Pedidos →
+                        </a>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead
+                                class="table-light small text-secondary text-uppercase"
+                                style="font-size: 0.75rem"
+                            >
+                                <tr>
+                                    <th scope="col" class="py-3 ps-3">Nº Pedido</th>
+                                    <th scope="col" class="py-3">Cliente</th>
+                                    <th scope="col" class="py-3">Telefone</th>
+                                    <th scope="col" class="py-3">Data / Horário</th>
+                                    <th scope="col" class="py-3">Modalidade</th>
+                                    <th scope="col" class="py-3">Valor Total</th>
+                                    <th scope="col" class="py-3">Status</th>
+                                    <th scope="col" class="py-3 text-end pe-3">Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody class="small">
+                                <!-- Pedido 1 -->
+                                <tr>
+                                    <td class="ps-3 fw-bold text-dark">#4829</td>
+                                    <td><strong class="text-dark">Lucas Silveira</strong></td>
+                                    <td class="text-secondary">(41) 99876-5432</td>
+                                    <td class="text-secondary">01/11/2026 19:42</td>
+                                    <td>
+                                        <span class="badge bg-light text-dark border"
+                                            >Consumo no estabelecimento</span
+                                        >
+                                    </td>
+                                    <td class="fw-bold text-dark">R$ 64,80</td>
+                                    <td>
+                                        <span
+                                            class="badge rounded-pill bg-primary-subtle text-primary-emphasis border border-primary-subtle px-2 py-1"
+                                            >Em preparo</span
+                                        >
+                                    </td>
+                                    <td class="text-end pe-3">
+                                        <button
+                                            type="button"
+                                            class="btn btn-outline-primary btn-sm rounded-3 py-1 px-2"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#modalDetalhes4829"
+                                        >
+                                            Detalhes
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <!-- Pedido 2 -->
+                                <tr>
+                                    <td class="ps-3 fw-bold text-dark">#4828</td>
+                                    <td><strong class="text-dark">Marina Duarte</strong></td>
+                                    <td class="text-secondary">(11) 99120-0082</td>
+                                    <td class="text-secondary">01/11/2026 19:35</td>
+                                    <td>
+                                        <span class="badge bg-light text-dark border"
+                                            >Retirada no local</span
+                                        >
+                                    </td>
+                                    <td class="fw-bold text-dark">R$ 36,90</td>
+                                    <td>
+                                        <span
+                                            class="badge rounded-pill bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-1"
+                                            >Pendente</span
+                                        >
+                                    </td>
+                                    <td class="text-end pe-3">
+                                        <button
+                                            type="button"
+                                            class="btn btn-outline-primary btn-sm rounded-3 py-1 px-2"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#modalDetalhes4829"
+                                        >
+                                            Detalhes
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <!-- Pedido 3 -->
+                                <tr>
+                                    <td class="ps-3 fw-bold text-dark">#4827</td>
+                                    <td><strong class="text-dark">Carlos Alberto</strong></td>
+                                    <td class="text-secondary">(11) 97344-5511</td>
+                                    <td class="text-secondary">01/11/2026 19:22</td>
+                                    <td>
+                                        <span class="badge bg-light text-dark border"
+                                            >Retirada no local</span
+                                        >
+                                    </td>
+                                    <td class="fw-bold text-dark">R$ 90,50</td>
+                                    <td>
+                                        <span
+                                            class="badge rounded-pill bg-primary-subtle text-primary-emphasis border border-primary-subtle px-2 py-1"
+                                            >Em preparo</span
+                                        >
+                                    </td>
+                                    <td class="text-end pe-3">
+                                        <button
+                                            type="button"
+                                            class="btn btn-outline-primary btn-sm rounded-3 py-1 px-2"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#modalDetalhes4829"
+                                        >
+                                            Detalhes
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <!-- Pedido 4 -->
+                                <tr>
+                                    <td class="ps-3 fw-bold text-dark">#4826</td>
+                                    <td><strong class="text-dark">Beatriz Zanin</strong></td>
+                                    <td class="text-secondary">(11) 98112-9900</td>
+                                    <td class="text-secondary">01/11/2026 19:15</td>
+                                    <td>
+                                        <span class="badge bg-light text-dark border"
+                                            >Consumo no estabelecimento</span
+                                        >
+                                    </td>
+                                    <td class="fw-bold text-dark">R$ 56,50</td>
+                                    <td>
+                                        <span
+                                            class="badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle px-2 py-1"
+                                            >Concluído</span
+                                        >
+                                    </td>
+                                    <td class="text-end pe-3">
+                                        <button
+                                            type="button"
+                                            class="btn btn-outline-primary btn-sm rounded-3 py-1 px-2"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#modalDetalhes4829"
+                                        >
+                                            Detalhes
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- ================================================================= -->
+        <!-- MODAL NATIVO BOOTSTRAP: DETALHES DO PEDIDO                        -->
+        <!-- ================================================================= -->
+        <div
+            class="modal fade"
+            id="modalDetalhes4829"
+            tabindex="-1"
+            aria-labelledby="modalDetalhes4829Label"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content rounded-4 border-0 shadow">
+                    <div class="modal-header border-bottom">
+                        <h5 class="modal-title fw-bold text-dark" id="modalDetalhes4829Label">
+                            Detalhes do Pedido #4829
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Fechar"
+                        ></button>
+                    </div>
+
+                    <div class="modal-body p-4">
+                        <!-- Dados do Cliente e Modalidade -->
+                        <div class="p-3 bg-light rounded-3 mb-3 small">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-secondary">Cliente:</span>
+                                <strong class="text-dark">Lucas Silveira</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-secondary">Telefone:</span>
+                                <strong class="text-dark">(41) 99876-5432</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-secondary">Modalidade:</span>
+                                <strong class="text-dark">Consumo no estabelecimento</strong>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-secondary">Data / Horário:</span>
+                                <span class="text-dark">01/11/2026 19:42</span>
+                            </div>
+                        </div>
+
+                        <!-- Itens do Pedido -->
+                        <h6 class="fw-bold text-dark mb-2">Itens Solicitados</h6>
+                        <ul class="list-group list-group-flush mb-3 small">
+                            <li
+                                class="list-group-item px-0 d-flex justify-content-between align-items-center"
+                            >
+                                <span>1x Smash Duplo Trufado</span>
+                                <span class="fw-bold text-dark">R$ 38,90</span>
+                            </li>
+                            <li
+                                class="list-group-item px-0 d-flex justify-content-between align-items-center"
+                            >
+                                <span>1x Batata Rústica com Alecrim</span>
+                                <span class="fw-bold text-dark">R$ 22,00</span>
+                            </li>
+                            <li
+                                class="list-group-item px-0 d-flex justify-content-between align-items-center"
+                            >
+                                <span>1x Soda Italiana 400ml</span>
+                                <span class="fw-bold text-dark">R$ 14,50</span>
+                            </li>
+                        </ul>
+
+                        <div
+                            class="d-flex justify-content-between align-items-center pt-2 border-top mb-3"
+                        >
+                            <span class="fw-bold text-dark">Valor Total:</span>
+                            <span class="fs-5 fw-bold text-primary">R$ 75,40</span>
+                        </div>
+
+                        <!-- Observação -->
+                        <div class="p-3 bg-light rounded-3 small">
+                            <strong class="text-dark d-block mb-1">Observação do Cliente:</strong>
+                            <span class="text-secondary"
+                                >"Sem cebola no hambúrguer, por favor."</span
+                            >
+                        </div>
+                    </div>
+
+                    <div class="modal-footer border-top bg-light">
+                        <button
+                            type="button"
+                            class="btn btn-secondary rounded-3"
+                            data-bs-dismiss="modal"
+                        >
+                            Fechar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="mt-auto bg-white border-top py-3">
+            <div
+                class="container-xl d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 text-secondary small"
+            >
+                <div class="d-flex align-items-center gap-2">
+                    <span class="fw-bold text-dark">MenuFlow Admin</span>
+                    <span>• Painel Administrativo</span>
+                </div>
+                <div class="d-flex gap-3">
+                    <a href="dashboard.html" class="text-secondary text-decoration-none"
+                        >Dashboard</a
+                    >
+                    <a href="pedidos.html" class="text-secondary text-decoration-none">Pedidos</a>
+                    <a href="produtos.html" class="text-secondary text-decoration-none">Produtos</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Script local do Bootstrap 5.3 -->
+        <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

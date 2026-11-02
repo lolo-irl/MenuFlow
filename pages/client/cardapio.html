@@ -1,0 +1,1106 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cardápio Digital - MenuFlow</title>
+        <meta
+            name="description"
+            content="Consulte os pratos, bebidas e sobremesas disponíveis no cardápio digital MenuFlow."
+        />
+
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../styles/styles.css" />
+    </head>
+    <body class="min-vh-100 d-flex flex-column">
+        <header class="sticky-top bg-white border-bottom shadow-sm">
+
+            <nav class="navbar navbar-expand-lg py-2">
+                <div class="container-xl">
+                    <a
+                        class="navbar-brand d-flex align-items-center gap-2 text-decoration-none"
+                        href="../../index.html"
+                    >
+                        <div
+                            class="d-flex align-items-center justify-content-center bg-primary rounded-3 text-white"
+                            style="width: 40px; height: 40px"
+                        >
+                            <svg
+                                width="22"
+                                height="22"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path d="M18 2v6a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V2"></path>
+                                <path d="M12 11v11"></path>
+                                <path d="M6 14h12"></path>
+                            </svg>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <span class="fs-5 fw-bold text-dark lh-1">MenuFlow</span>
+                            <small class="text-secondary small" style="font-size: 0.72rem"
+                                >Cardápio Digital</small
+                            >
+                        </div>
+                    </a>
+
+                    <button
+                        class="navbar-toggler border-0 p-1 ms-auto d-lg-none me-2"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar"
+                        aria-controls="offcanvasNavbar"
+                        aria-label="Abrir menu de navegação"
+                    >
+                        <svg
+                            width="26"
+                            height="26"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+
+                    <button
+                        class="btn btn-outline-primary d-lg-none d-flex align-items-center gap-1 rounded-3 py-1 px-2 position-relative"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasCarrinho"
+                        aria-controls="offcanvasCarrinho"
+                        aria-label="Abrir carrinho"
+                    >
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                        <span class="badge bg-primary text-white rounded-pill px-1 small">3</span>
+                    </button>
+
+                    <!-- Offcanvas Mobile de Navegação -->
+                    <div
+                        class="offcanvas offcanvas-end"
+                        tabindex="-1"
+                        id="offcanvasNavbar"
+                        aria-labelledby="offcanvasNavbarLabel"
+                    >
+                        <div class="offcanvas-header border-bottom">
+                            <div class="d-flex align-items-center gap-2">
+                                <div
+                                    class="d-flex align-items-center justify-content-center bg-primary rounded-3 text-white"
+                                    style="width: 32px; height: 32px"
+                                >
+                                    <svg
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M18 2v6a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V2"></path>
+                                        <path d="M12 11v11"></path>
+                                    </svg>
+                                </div>
+                                <h5
+                                    class="offcanvas-title fw-bold text-dark m-0"
+                                    id="offcanvasNavbarLabel"
+                                >
+                                    MenuFlow
+                                </h5>
+                            </div>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="offcanvas"
+                                aria-label="Fechar menu"
+                            ></button>
+                        </div>
+
+                        <div
+                            class="offcanvas-body d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between gap-3 p-3 p-lg-0"
+                        >
+                            <!-- Links permitidos no escopo -->
+                            <ul class="navbar-nav me-lg-auto gap-1">
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link text-secondary fw-semibold px-3 py-2 rounded-3 text-nowrap"
+                                        href="../../index.html"
+                                        >Início</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link active fw-bold text-primary px-3 py-2 rounded-3 bg-primary-subtle text-nowrap"
+                                        aria-current="page"
+                                        href="cardapio.html"
+                                        >Cardápio</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link text-secondary fw-semibold px-3 py-2 rounded-3 text-nowrap"
+                                        href="finalizar-pedido.html"
+                                        >Finalizar Pedido</a
+                                    >
+                                </li>
+                            </ul>
+
+                            <hr class="d-lg-none m-0" />
+
+                            <div class="d-flex align-items-center gap-2 ms-lg-auto">
+                                <!-- Botão para abrir Carrinho Lateral (Offcanvas) -->
+                                <button
+                                    class="btn btn-outline-primary d-none d-lg-flex align-items-center gap-2 rounded-3 px-3 py-2 text-nowrap"
+                                    type="button"
+                                    data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasCarrinho"
+                                    aria-controls="offcanvasCarrinho"
+                                >
+                                    <svg
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                                        ></path>
+                                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                    </svg>
+                                    <span>Carrinho</span>
+                                    <span class="badge bg-primary text-white rounded-pill px-2"
+                                        >3</span
+                                    >
+                                </button>
+
+                                <!-- Acesso Administrativo -->
+                                <a
+                                    href="../admin/login.html"
+                                    class="btn btn-light border d-flex align-items-center gap-2 rounded-3 px-3 py-2 text-secondary text-nowrap"
+                                    title="Área Administrativa"
+                                >
+                                    <svg
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <rect
+                                            x="3"
+                                            y="11"
+                                            width="18"
+                                            height="11"
+                                            rx="2"
+                                            ry="2"
+                                        ></rect>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                    </svg>
+                                    <span>Área Admin</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- ================================================================= -->
+        <!-- MAIN CONTENT: CARDÁPIO DIGITAL DE PRODUTOS                        -->
+        <!-- ================================================================= -->
+        <main class="flex-grow-1 py-4">
+            <div class="container-xl">
+                <!-- CABEÇALHO DO CARDÁPIO & CAMPO DE BUSCA -->
+                <section class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+                    <div class="row align-items-center g-3">
+                        <div class="col-12 col-md-6">
+                            <h1 class="h3 fw-bold text-dark mb-1">Cardápio Digital</h1>
+                            <p class="text-secondary small mb-0">
+                                Explore nossos produtos, filtre por categoria e monte seu carrinho
+                                de compras.
+                            </p>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <form role="search" action="cardapio.html" method="get">
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-end-0">
+                                        <svg
+                                            width="18"
+                                            height="18"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            class="text-secondary"
+                                        >
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                        </svg>
+                                    </span>
+                                    <label for="buscar-cardapio" class="visually-hidden"
+                                        >Buscar produtos no cardápio</label
+                                    >
+                                    <input
+                                        type="search"
+                                        class="form-control border-start-0 bg-light"
+                                        id="buscar-cardapio"
+                                        name="busca"
+                                        placeholder="Buscar por hambúrgueres, pizzas, bebidas ou sobremesas..."
+                                    />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- BARRA DE CATEGORIAS (NAV-PILLS BOOTSTRAP 5.3) -->
+                <nav
+                    class="mb-4 overflow-auto pb-2"
+                    aria-label="Navegação por categorias de produtos"
+                >
+                    <ul class="nav nav-pills flex-nowrap gap-2">
+                        <li class="nav-item">
+                            <button
+                                class="nav-link active rounded-pill px-4 py-2 fw-semibold text-nowrap"
+                                type="button"
+                                aria-current="true"
+                            >
+                                🍽️ Todos os Produtos
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button
+                                class="nav-link bg-white text-secondary border rounded-pill px-4 py-2 fw-semibold text-nowrap"
+                                type="button"
+                            >
+                                🍔 Hambúrgueres
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button
+                                class="nav-link bg-white text-secondary border rounded-pill px-4 py-2 fw-semibold text-nowrap"
+                                type="button"
+                            >
+                                🍕 Pizzas
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button
+                                class="nav-link bg-white text-secondary border rounded-pill px-4 py-2 fw-semibold text-nowrap"
+                                type="button"
+                            >
+                                🍟 Acompanhamentos
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button
+                                class="nav-link bg-white text-secondary border rounded-pill px-4 py-2 fw-semibold text-nowrap"
+                                type="button"
+                            >
+                                🍨 Sobremesas
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button
+                                class="nav-link bg-white text-secondary border rounded-pill px-4 py-2 fw-semibold text-nowrap"
+                                type="button"
+                            >
+                                🍹 Bebidas
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- GRADE DE PRODUTOS -->
+                <!-- Cada produto tem APENAS: imagem, nome, descrição, categoria, preço e disponibilidade -->
+                <div class="row g-4">
+                    <!-- Produto 1: Burger Artesanal Blend 180g (Disponível) -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article
+                            class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white d-flex flex-column"
+                        >
+                            <div
+                                class="bg-secondary-subtle position-relative d-flex align-items-center justify-content-center"
+                                style="height: 200px"
+                            >
+                                <span class="display-3">🍔</span>
+                                <span
+                                    class="position-absolute top-0 start-0 m-3 badge bg-light text-dark border"
+                                >
+                                    Hambúrgueres
+                                </span>
+                                <span
+                                    class="position-absolute top-0 end-0 m-3 badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle"
+                                >
+                                    Disponível
+                                </span>
+                            </div>
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h2 class="h5 fw-bold text-dark mb-1">
+                                    Burger Artesanal Blend 180g
+                                </h2>
+                                <p class="text-secondary small mb-3">
+                                    Pão brioche selado na manteiga, hambúrguer artesanal de costela
+                                    e queijo cheddar derretido com cebola caramelizada.
+                                </p>
+                                <div
+                                    class="mt-auto pt-3 border-top d-flex align-items-center justify-content-between"
+                                >
+                                    <div>
+                                        <small
+                                            class="text-secondary d-block"
+                                            style="font-size: 0.72rem"
+                                            >Preço</small
+                                        >
+                                        <span class="fs-5 fw-bold text-primary">R$ 36,90</span>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary btn-sm px-3 py-2 rounded-3 fw-semibold d-inline-flex align-items-center gap-1"
+                                    >
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="12" y2="12"></line>
+                                        </svg>
+                                        <span>Adicionar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Produto 2: Pizza Margherita Napolitana (Disponível) -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article
+                            class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white d-flex flex-column"
+                        >
+                            <div
+                                class="bg-secondary-subtle position-relative d-flex align-items-center justify-content-center"
+                                style="height: 200px"
+                            >
+                                <span class="display-3">🍕</span>
+                                <span
+                                    class="position-absolute top-0 start-0 m-3 badge bg-light text-dark border"
+                                >
+                                    Pizzas
+                                </span>
+                                <span
+                                    class="position-absolute top-0 end-0 m-3 badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle"
+                                >
+                                    Disponível
+                                </span>
+                            </div>
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h2 class="h5 fw-bold text-dark mb-1">
+                                    Pizza Margherita Napolitana
+                                </h2>
+                                <p class="text-secondary small mb-3">
+                                    Massa artesanal italiana, molho San Marzano, mozzarella de
+                                    búfala fresca, folhas de manjericão e azeite extravirgem.
+                                </p>
+                                <div
+                                    class="mt-auto pt-3 border-top d-flex align-items-center justify-content-between"
+                                >
+                                    <div>
+                                        <small
+                                            class="text-secondary d-block"
+                                            style="font-size: 0.72rem"
+                                            >Preço</small
+                                        >
+                                        <span class="fs-5 fw-bold text-primary">R$ 42,00</span>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary btn-sm px-3 py-2 rounded-3 fw-semibold d-inline-flex align-items-center gap-1"
+                                    >
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="12" y2="12"></line>
+                                        </svg>
+                                        <span>Adicionar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Produto 3: Batata Rústica com Páprica (Disponível) -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article
+                            class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white d-flex flex-column"
+                        >
+                            <div
+                                class="bg-secondary-subtle position-relative d-flex align-items-center justify-content-center"
+                                style="height: 200px"
+                            >
+                                <span class="display-3">🍟</span>
+                                <span
+                                    class="position-absolute top-0 start-0 m-3 badge bg-light text-dark border"
+                                >
+                                    Acompanhamentos
+                                </span>
+                                <span
+                                    class="position-absolute top-0 end-0 m-3 badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle"
+                                >
+                                    Disponível
+                                </span>
+                            </div>
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h2 class="h5 fw-bold text-dark mb-1">
+                                    Batata Rústica com Páprica
+                                </h2>
+                                <p class="text-secondary small mb-3">
+                                    Batatas cortadas em gomos crocantes por fora e macias por
+                                    dentro, temperadas com páprica defumada e alecrim.
+                                </p>
+                                <div
+                                    class="mt-auto pt-3 border-top d-flex align-items-center justify-content-between"
+                                >
+                                    <div>
+                                        <small
+                                            class="text-secondary d-block"
+                                            style="font-size: 0.72rem"
+                                            >Preço</small
+                                        >
+                                        <span class="fs-5 fw-bold text-primary">R$ 22,00</span>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary btn-sm px-3 py-2 rounded-3 fw-semibold d-inline-flex align-items-center gap-1"
+                                    >
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="12" y2="12"></line>
+                                        </svg>
+                                        <span>Adicionar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Produto 4: Petit Gâteau com Baunilha (Disponível) -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article
+                            class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white d-flex flex-column"
+                        >
+                            <div
+                                class="bg-secondary-subtle position-relative d-flex align-items-center justify-content-center"
+                                style="height: 200px"
+                            >
+                                <span class="display-3">🍨</span>
+                                <span
+                                    class="position-absolute top-0 start-0 m-3 badge bg-light text-dark border"
+                                >
+                                    Sobremesas
+                                </span>
+                                <span
+                                    class="position-absolute top-0 end-0 m-3 badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle"
+                                >
+                                    Disponível
+                                </span>
+                            </div>
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h2 class="h5 fw-bold text-dark mb-1">Petit Gâteau com Baunilha</h2>
+                                <p class="text-secondary small mb-3">
+                                    Bolo de chocolate meio amargo com centro quente cremoso,
+                                    acompanhado de sorvete artesanal de fava de baunilha.
+                                </p>
+                                <div
+                                    class="mt-auto pt-3 border-top d-flex align-items-center justify-content-between"
+                                >
+                                    <div>
+                                        <small
+                                            class="text-secondary d-block"
+                                            style="font-size: 0.72rem"
+                                            >Preço</small
+                                        >
+                                        <span class="fs-5 fw-bold text-primary">R$ 24,50</span>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary btn-sm px-3 py-2 rounded-3 fw-semibold d-inline-flex align-items-center gap-1"
+                                    >
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="12" y2="12"></line>
+                                        </svg>
+                                        <span>Adicionar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Produto 5: Suco de Laranja Natural 500ml (Disponível) -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article
+                            class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white d-flex flex-column"
+                        >
+                            <div
+                                class="bg-secondary-subtle position-relative d-flex align-items-center justify-content-center"
+                                style="height: 200px"
+                            >
+                                <span class="display-3">🍊</span>
+                                <span
+                                    class="position-absolute top-0 start-0 m-3 badge bg-light text-dark border"
+                                >
+                                    Bebidas
+                                </span>
+                                <span
+                                    class="position-absolute top-0 end-0 m-3 badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle"
+                                >
+                                    Disponível
+                                </span>
+                            </div>
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h2 class="h5 fw-bold text-dark mb-1">
+                                    Suco de Laranja Natural 500ml
+                                </h2>
+                                <p class="text-secondary small mb-3">
+                                    Suco de laranja pera espremido na hora, gelado, 100% puro e sem
+                                    adição de açúcares ou conservantes.
+                                </p>
+                                <div
+                                    class="mt-auto pt-3 border-top d-flex align-items-center justify-content-between"
+                                >
+                                    <div>
+                                        <small
+                                            class="text-secondary d-block"
+                                            style="font-size: 0.72rem"
+                                            >Preço</small
+                                        >
+                                        <span class="fs-5 fw-bold text-primary">R$ 12,00</span>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary btn-sm px-3 py-2 rounded-3 fw-semibold d-inline-flex align-items-center gap-1"
+                                    >
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="12" y2="12"></line>
+                                        </svg>
+                                        <span>Adicionar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Produto 6: Refrigerante Artesanal de Limão (Disponível) -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article
+                            class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white d-flex flex-column"
+                        >
+                            <div
+                                class="bg-secondary-subtle position-relative d-flex align-items-center justify-content-center"
+                                style="height: 200px"
+                            >
+                                <span class="display-3">🍋</span>
+                                <span
+                                    class="position-absolute top-0 start-0 m-3 badge bg-light text-dark border"
+                                >
+                                    Bebidas
+                                </span>
+                                <span
+                                    class="position-absolute top-0 end-0 m-3 badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle"
+                                >
+                                    Disponível
+                                </span>
+                            </div>
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h2 class="h5 fw-bold text-dark mb-1">
+                                    Refrigerante Artesanal de Limão
+                                </h2>
+                                <p class="text-secondary small mb-3">
+                                    Bebida gaseificada produzida com suco de limão siciliano
+                                    orgânico, água mineral gaseificada e xarope leve.
+                                </p>
+                                <div
+                                    class="mt-auto pt-3 border-top d-flex align-items-center justify-content-between"
+                                >
+                                    <div>
+                                        <small
+                                            class="text-secondary d-block"
+                                            style="font-size: 0.72rem"
+                                            >Preço</small
+                                        >
+                                        <span class="fs-5 fw-bold text-primary">R$ 10,00</span>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary btn-sm px-3 py-2 rounded-3 fw-semibold d-inline-flex align-items-center gap-1"
+                                    >
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="12" y2="12"></line>
+                                        </svg>
+                                        <span>Adicionar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Produto 7: Pizza Trufada de Cogumelos (Indisponível - sem opacity-75) -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article
+                            class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white d-flex flex-column"
+                        >
+                            <div
+                                class="bg-secondary-subtle position-relative d-flex align-items-center justify-content-center"
+                                style="height: 200px"
+                            >
+                                <span class="display-3">🍄</span>
+                                <span
+                                    class="position-absolute top-0 start-0 m-3 badge bg-light text-dark border"
+                                >
+                                    Pizzas
+                                </span>
+                                <span
+                                    class="position-absolute top-0 end-0 m-3 badge rounded-pill bg-danger-subtle text-danger-emphasis border border-danger-subtle"
+                                >
+                                    Indisponível
+                                </span>
+                            </div>
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h2 class="h5 fw-bold text-dark mb-1 text-decoration-line-through">
+                                    Pizza Trufada de Cogumelos
+                                </h2>
+                                <p class="text-secondary small mb-3">
+                                    Massa de longa fermentação, mix de cogumelos frescos salteados
+                                    no azeite trufado e queijo fontina derretido.
+                                </p>
+                                <div
+                                    class="mt-auto pt-3 border-top d-flex align-items-center justify-content-between"
+                                >
+                                    <div>
+                                        <small
+                                            class="text-secondary d-block"
+                                            style="font-size: 0.72rem"
+                                            >Preço</small
+                                        >
+                                        <span class="fs-5 fw-bold text-secondary">R$ 48,00</span>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        class="btn btn-secondary btn-sm px-3 py-2 rounded-3 fw-semibold"
+                                        disabled
+                                        aria-disabled="true"
+                                    >
+                                        Indisponível
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Produto 8: Burger Vegetariano de Grão-de-Bico (Disponível) -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article
+                            class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white d-flex flex-column"
+                        >
+                            <div
+                                class="bg-secondary-subtle position-relative d-flex align-items-center justify-content-center"
+                                style="height: 200px"
+                            >
+                                <span class="display-3">🌱</span>
+                                <span
+                                    class="position-absolute top-0 start-0 m-3 badge bg-light text-dark border"
+                                >
+                                    Hambúrgueres
+                                </span>
+                                <span
+                                    class="position-absolute top-0 end-0 m-3 badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle"
+                                >
+                                    Disponível
+                                </span>
+                            </div>
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h2 class="h5 fw-bold text-dark mb-1">
+                                    Burger Vegetariano de Grão-de-Bico
+                                </h2>
+                                <p class="text-secondary small mb-3">
+                                    Hambúrguer de grão-de-bico temperado com especiarias, rúcula
+                                    fresca, tomate seco e maionese vegana no pão integral.
+                                </p>
+                                <div
+                                    class="mt-auto pt-3 border-top d-flex align-items-center justify-content-between"
+                                >
+                                    <div>
+                                        <small
+                                            class="text-secondary d-block"
+                                            style="font-size: 0.72rem"
+                                            >Preço</small
+                                        >
+                                        <span class="fs-5 fw-bold text-primary">R$ 34,00</span>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary btn-sm px-3 py-2 rounded-3 fw-semibold d-inline-flex align-items-center gap-1"
+                                    >
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="12" y2="12"></line>
+                                        </svg>
+                                        <span>Adicionar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Produto 9: Chá Gelado de Pêssego (Indisponível - sem opacity-75) -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article
+                            class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white d-flex flex-column"
+                        >
+                            <div
+                                class="bg-secondary-subtle position-relative d-flex align-items-center justify-content-center"
+                                style="height: 200px"
+                            >
+                                <span class="display-3">🍑</span>
+                                <span
+                                    class="position-absolute top-0 start-0 m-3 badge bg-light text-dark border"
+                                >
+                                    Bebidas
+                                </span>
+                                <span
+                                    class="position-absolute top-0 end-0 m-3 badge rounded-pill bg-danger-subtle text-danger-emphasis border border-danger-subtle"
+                                >
+                                    Indisponível
+                                </span>
+                            </div>
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h2 class="h5 fw-bold text-dark mb-1 text-decoration-line-through">
+                                    Chá Gelado de Pêssego
+                                </h2>
+                                <p class="text-secondary small mb-3">
+                                    Chá preto infusionado a frio com polpa fresca de pêssego e toque
+                                    aromático de hortelã.
+                                </p>
+                                <div
+                                    class="mt-auto pt-3 border-top d-flex align-items-center justify-content-between"
+                                >
+                                    <div>
+                                        <small
+                                            class="text-secondary d-block"
+                                            style="font-size: 0.72rem"
+                                            >Preço</small
+                                        >
+                                        <span class="fs-5 fw-bold text-secondary">R$ 13,00</span>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        class="btn btn-secondary btn-sm px-3 py-2 rounded-3 fw-semibold"
+                                        disabled
+                                        aria-disabled="true"
+                                    >
+                                        Indisponível
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- ================================================================= -->
+        <!-- OFFCANVAS NATIVO BOOTSTRAP: RESUMO DO CARRINHO COM ITENS E CONTROLE-->
+        <!-- ================================================================= -->
+        <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasCarrinho"
+            aria-labelledby="offcanvasCarrinhoLabel"
+        >
+            <div class="offcanvas-header border-bottom">
+                <div class="d-flex align-items-center gap-2">
+                    <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        class="text-primary"
+                    >
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <h5 class="offcanvas-title fw-bold text-dark m-0" id="offcanvasCarrinhoLabel">
+                        Seu Carrinho
+                    </h5>
+                </div>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Fechar carrinho"
+                ></button>
+            </div>
+
+            <div class="offcanvas-body d-flex flex-column justify-content-between p-3">
+                <!-- Lista de Itens do Carrinho com controle de quantidade e botão remover -->
+                <div class="d-flex flex-column gap-3">
+                    <!-- Item 1 -->
+                    <div class="p-3 bg-light rounded-3">
+                        <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+                            <strong class="text-dark small">Burger Artesanal Blend 180g</strong>
+                            <span class="fw-bold text-primary text-nowrap">R$ 36,90</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="input-group input-group-sm w-auto">
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-secondary"
+                                    aria-label="Diminuir quantidade"
+                                >
+                                    −
+                                </button>
+                                <span class="input-group-text bg-white px-3">1</span>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-secondary"
+                                    aria-label="Aumentar quantidade"
+                                >
+                                    +
+                                </button>
+                            </div>
+                            <button
+                                type="button"
+                                class="btn btn-link btn-sm text-danger text-decoration-none p-0"
+                            >
+                                Remover
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="p-3 bg-light rounded-3">
+                        <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+                            <strong class="text-dark small">Pizza Margherita Napolitana</strong>
+                            <span class="fw-bold text-primary text-nowrap">R$ 42,00</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="input-group input-group-sm w-auto">
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-secondary"
+                                    aria-label="Diminuir quantidade"
+                                >
+                                    −
+                                </button>
+                                <span class="input-group-text bg-white px-3">1</span>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-secondary"
+                                    aria-label="Aumentar quantidade"
+                                >
+                                    +
+                                </button>
+                            </div>
+                            <button
+                                type="button"
+                                class="btn btn-link btn-sm text-danger text-decoration-none p-0"
+                            >
+                                Remover
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="p-3 bg-light rounded-3">
+                        <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+                            <strong class="text-dark small">Petit Gâteau com Baunilha</strong>
+                            <span class="fw-bold text-primary text-nowrap">R$ 24,50</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="input-group input-group-sm w-auto">
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-secondary"
+                                    aria-label="Diminuir quantidade"
+                                >
+                                    −
+                                </button>
+                                <span class="input-group-text bg-white px-3">1</span>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-secondary"
+                                    aria-label="Aumentar quantidade"
+                                >
+                                    +
+                                </button>
+                            </div>
+                            <button
+                                type="button"
+                                class="btn btn-link btn-sm text-danger text-decoration-none p-0"
+                            >
+                                Remover
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumo Total e Link para Finalizar Pedido -->
+                <div class="pt-3 border-top mt-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="fw-bold text-secondary">Total:</span>
+                        <span class="fs-4 fw-bold text-primary">R$ 103,40</span>
+                    </div>
+                    <a
+                        href="finalizar-pedido.html"
+                        class="btn btn-primary btn-lg w-100 py-3 fw-bold rounded-3 shadow-sm d-flex align-items-center justify-content-center gap-2 text-decoration-none"
+                    >
+                        <span>Avançar para Finalizar Pedido</span>
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- FOOTER COM STICKY FOOTER NATIVO (mt-auto)                         -->
+        <!-- ================================================================= -->
+        <footer class="mt-auto bg-white border-top py-4">
+            <div class="container-xl">
+                <div class="row align-items-center gy-3 text-center text-md-start">
+                    <div class="col-12 col-md-6">
+                        <div
+                            class="d-flex align-items-center justify-content-center justify-content-md-start gap-2"
+                        >
+                            <div
+                                class="bg-primary rounded-2 text-white p-1 d-flex align-items-center justify-content-center"
+                                style="width: 28px; height: 28px"
+                            >
+                                <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path d="M18 2v6a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V2"></path>
+                                    <path d="M12 11v11"></path>
+                                    <path d="M6 14h12"></path>
+                                </svg>
+                            </div>
+                            <span class="fw-bold text-dark">MenuFlow</span>
+                            <span class="text-secondary small">— Cardápio Digital</span>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 text-center text-md-end">
+                        <div
+                            class="d-flex align-items-center justify-content-center justify-content-md-end gap-3 small text-secondary flex-wrap"
+                        >
+                            <a href="../../index.html" class="text-secondary text-decoration-none"
+                                >Início</a
+                            >
+                            <a href="cardapio.html" class="text-secondary text-decoration-none"
+                                >Cardápio</a
+                            >
+                            <a
+                                href="finalizar-pedido.html"
+                                class="text-secondary text-decoration-none"
+                                >Finalizar Pedido</a
+                            >
+                            <a
+                                href="../admin/login.html"
+                                class="text-secondary text-decoration-none fw-semibold"
+                                >Área Admin</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center text-md-start text-secondary small mt-3 pt-2 border-top">
+                    © 2026 MenuFlow. Todos os direitos reservados.
+                </div>
+            </div>
+        </footer>
+
+        <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
