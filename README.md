@@ -54,12 +54,12 @@ Os itens abaixo representam os indicadores de desempenho da disciplina. As caixa
 
 ### RA1 — Frameworks CSS, layouts e responsividade
 
-- [ ] **ID 01** — Prototipa interfaces adaptáveis para mobile e desktop no Figma ou ferramenta equivalente.
-- [ ] **ID 02** — Implementa layout responsivo com Bootstrap, utilizando Flexbox ou Grid do framework.
+- [x] **ID 01** — Prototipa interfaces adaptáveis para mobile e desktop no Figma ou ferramenta equivalente.
+- [x] **ID 02** — Implementa layout responsivo com Bootstrap, utilizando Flexbox ou Grid do framework.
 - [ ] **ID 03** — Implementa layout responsivo com CSS próprio, utilizando Flexbox ou Grid Layout.
-- [ ] **ID 04** — Utiliza componentes do Bootstrap e componentes JavaScript do framework.
+- [x] **ID 04** — Utiliza componentes do Bootstrap e componentes JavaScript do framework.
 - [ ] **ID 05** — Utiliza unidades relativas (`vw`, `vh`, `%`, `em`, `rem`) para criar layouts fluidos.
-- [ ] **ID 06** — Aplica um Design System consistente em toda a aplicação.
+- [x] **ID 06** — Aplica um Design System consistente em toda a aplicação.
 - [ ] **ID 07** — Utiliza Sass/SCSS com variáveis, mixins e funções.
 - [ ] **ID 08** — Implementa tipografia responsiva com media queries mobile first ou `clamp()`.
 - [ ] **ID 09** — Aplica técnicas de responsividade de imagens, como `object-fit` e containers fluidos.
@@ -69,7 +69,7 @@ Os itens abaixo representam os indicadores de desempenho da disciplina. As caixa
 
 - [ ] **ID 11** — Implementa validação HTML nativa, campos obrigatórios e mensagens de erro/sucesso.
 - [ ] **ID 12** — Aplica expressões regulares (REGEX) para validações customizadas, como telefone.
-- [ ] **ID 13** — Utiliza elementos de seleção, como checkbox, radio e select.
+- [x] **ID 13** — Utiliza elementos de seleção, como checkbox, radio e select.
 - [ ] **ID 14** — Implementa leitura e escrita no Web Storage (`localStorage` ou `sessionStorage`).
 
 ### RA3 — Ferramentas e organização do desenvolvimento
@@ -77,7 +77,7 @@ Os itens abaixo representam os indicadores de desempenho da disciplina. As caixa
 - [x] **ID 15** — Configura o ambiente com Node.js e NPM.
 - [x] **ID 16** — Utiliza Git/GitHub com organização de branches e arquivo `.gitignore`.
 - [x] **ID 17** — Mantém este README padronizado e atualiza o checklist durante o desenvolvimento.
-- [ ] **ID 18** — Organiza os arquivos de forma modular.
+- [x] **ID 18** — Organiza os arquivos de forma modular.
 - [ ] **ID 19** — Configura ESLint e Prettier.
 
 ### RA4 — Bibliotecas JavaScript e interatividade
@@ -89,7 +89,7 @@ Os itens abaixo representam os indicadores de desempenho da disciplina. As caixa
 
 - [ ] **ID 22** — Realiza requisições assíncronas para a API fake para persistir dados de formulários.
 - [ ] **ID 23** — Realiza requisições assíncronas para a API fake para exibir dados nas páginas.
-- [ ] **ID 24** — Integra uma API pública real, tratando respostas e erros. `Opcional / a definir conforme orientação da disciplina`.
+- [ ] **ID 24** — Integra uma API pública real, tratando respostas e erros.
 
 ## 🚀 Manual de Execução
 
