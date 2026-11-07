@@ -2,9 +2,9 @@
 
 // Banner de chamada para ação (seção da página inicial)
 .card-banner-cta {
-  background: linear-gradient(
-    135deg,
-    variables.$cor-primaria 0%,
-    variables.$cor-primaria-gradiente 100%
-  );
+    background: linear-gradient(
+        135deg,
+        variables.$cor-primaria 0%,
+        variables.$cor-primaria-gradiente 100%
+    );
 }

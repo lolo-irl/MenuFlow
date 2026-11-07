@@ -3,49 +3,49 @@
 
 // Botões: o Bootstrap compila essas cores fixas, então redefinimos as variáveis do componente.
 .btn-primary {
-  --bs-btn-bg: #{variables.$cor-primaria};
-  --bs-btn-border-color: #{variables.$cor-primaria};
-  --bs-btn-hover-bg: #{variables.$cor-primaria-escura};
-  --bs-btn-hover-border-color: #{variables.$cor-primaria-escura};
-  --bs-btn-active-bg: #{variables.$cor-primaria-escura};
-  --bs-btn-active-border-color: #{variables.$cor-primaria-escura};
-  --bs-btn-disabled-bg: #{variables.$cor-primaria};
-  --bs-btn-disabled-border-color: #{variables.$cor-primaria};
-  --bs-btn-focus-shadow-rgb: #{variables.$cor-primaria-rgb};
+    --bs-btn-bg: #{variables.$cor-primaria};
+    --bs-btn-border-color: #{variables.$cor-primaria};
+    --bs-btn-hover-bg: #{variables.$cor-primaria-escura};
+    --bs-btn-hover-border-color: #{variables.$cor-primaria-escura};
+    --bs-btn-active-bg: #{variables.$cor-primaria-escura};
+    --bs-btn-active-border-color: #{variables.$cor-primaria-escura};
+    --bs-btn-disabled-bg: #{variables.$cor-primaria};
+    --bs-btn-disabled-border-color: #{variables.$cor-primaria};
+    --bs-btn-focus-shadow-rgb: #{variables.$cor-primaria-rgb};
 }
 
 .btn-outline-primary {
-  --bs-btn-color: #{variables.$cor-primaria};
-  --bs-btn-border-color: #{variables.$cor-primaria};
-  --bs-btn-hover-bg: #{variables.$cor-primaria};
-  --bs-btn-hover-border-color: #{variables.$cor-primaria};
-  --bs-btn-active-bg: #{variables.$cor-primaria};
-  --bs-btn-active-border-color: #{variables.$cor-primaria};
-  --bs-btn-disabled-color: #{variables.$cor-primaria};
-  --bs-btn-disabled-border-color: #{variables.$cor-primaria};
-  --bs-btn-focus-shadow-rgb: #{variables.$cor-primaria-rgb};
+    --bs-btn-color: #{variables.$cor-primaria};
+    --bs-btn-border-color: #{variables.$cor-primaria};
+    --bs-btn-hover-bg: #{variables.$cor-primaria};
+    --bs-btn-hover-border-color: #{variables.$cor-primaria};
+    --bs-btn-active-bg: #{variables.$cor-primaria};
+    --bs-btn-active-border-color: #{variables.$cor-primaria};
+    --bs-btn-disabled-color: #{variables.$cor-primaria};
+    --bs-btn-disabled-border-color: #{variables.$cor-primaria};
+    --bs-btn-focus-shadow-rgb: #{variables.$cor-primaria-rgb};
 }
 
 // Categorias do cardápio
 .nav-pills {
-  --bs-nav-pills-link-active-bg: #{variables.$cor-primaria};
+    --bs-nav-pills-link-active-bg: #{variables.$cor-primaria};
 }
 
 // Formulários: aninhamento dos estados (:focus, :checked) e uso do mixin.
 .form-control,
 .form-select {
-  &:focus {
-    @include mixins.foco-campo;
-  }
+    &:focus {
+        @include mixins.foco-campo;
+    }
 }
 
 .form-check-input {
-  &:checked {
-    background-color: variables.$cor-primaria;
-    border-color: variables.$cor-primaria;
-  }
+    &:checked {
+        background-color: variables.$cor-primaria;
+        border-color: variables.$cor-primaria;
+    }
 
-  &:focus {
-    @include mixins.foco-campo;
-  }
+    &:focus {
+        @include mixins.foco-campo;
+    }
 }

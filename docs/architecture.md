@@ -42,24 +42,24 @@ Disponibiliza as funcionalidades utilizadas pelo administrador:
 
 ## 3. Tecnologias utilizadas
 
-| Tecnologia/Ferramenta | Finalidade | Situação |
-| --------------------- | ---------- | -------- |
-| HTML5 | Estrutura das páginas | Em uso |
-| CSS3 | Estilização | Em uso |
-| Bootstrap 5.3 | Componentes e responsividade (instalado via NPM e consumido localmente, sem CDN) | Em uso |
-| JavaScript | Lógica e interatividade | Planejado |
-| jQuery | Manipulação do DOM e integração com plugins | Planejado |
-| jQuery Mask Plugin | Máscara para campos de telefone | Planejado |
-| JSON Server | Simulação de uma API REST | Planejado |
-| Fetch API | Comunicação assíncrona com a API | Planejado |
-| localStorage | Persistência local do carrinho | Planejado |
-| Node.js e NPM | Gerenciamento do ambiente e dependências | Em uso |
-| Sass | Organização e compilação dos estilos | Em uso (Sass) |
-| ESLint | Padronização e análise do código JavaScript | Planejado |
-| Prettier | Formatação do código | Em uso |
-| Stitch | Prototipação das interfaces | Utilizado na Atividade 08 |
-| Google AI Studio | Geração inicial das páginas HTML a partir dos protótipos | Utilizado na Atividade 08 |
-| Claude | Revisão do código com base nas regras do projeto | Utilizado na Atividade 08 |
+| Tecnologia/Ferramenta | Finalidade                                                                       | Situação                  |
+| --------------------- | -------------------------------------------------------------------------------- | ------------------------- |
+| HTML5                 | Estrutura das páginas                                                            | Em uso                    |
+| CSS3                  | Estilização                                                                      | Em uso                    |
+| Bootstrap 5.3         | Componentes e responsividade (instalado via NPM e consumido localmente, sem CDN) | Em uso                    |
+| JavaScript            | Lógica e interatividade                                                          | Planejado                 |
+| jQuery                | Manipulação do DOM e integração com plugins                                      | Planejado                 |
+| jQuery Mask Plugin    | Máscara para campos de telefone                                                  | Planejado                 |
+| JSON Server           | Simulação de uma API REST                                                        | Planejado                 |
+| Fetch API             | Comunicação assíncrona com a API                                                 | Planejado                 |
+| localStorage          | Persistência local do carrinho                                                   | Planejado                 |
+| Node.js e NPM         | Gerenciamento do ambiente e dependências                                         | Em uso                    |
+| Sass                  | Organização e compilação dos estilos                                             | Em uso (Sass)             |
+| ESLint                | Padronização e análise do código JavaScript                                      | Planejado                 |
+| Prettier              | Formatação do código                                                             | Em uso                    |
+| Stitch                | Prototipação das interfaces                                                      | Utilizado na Atividade 08 |
+| Google AI Studio      | Geração inicial das páginas HTML a partir dos protótipos                         | Utilizado na Atividade 08 |
+| Claude                | Revisão do código com base nas regras do projeto                                 | Utilizado na Atividade 08 |
 
 ## 4. Modelo de dados
 
@@ -108,7 +108,7 @@ erDiagram
         int quantidade
         decimal preco_unitario
     }
-````
+```
 
 ### 4.2. Descrição das entidades
 
@@ -350,17 +350,16 @@ MenuFlow/
 
 Os estilos do projeto são escritos em Sass (sintaxe SCSS) em `assets/scss/` e compilados para `assets/css/style.css`. As páginas carregam apenas esse arquivo, depois do CSS do Bootstrap.
 
-| Arquivo | Conteúdo |
-| --- | --- |
-| `_variables.scss` | Variáveis de cor, tipografia, espaçamento e foco |
-| `_mixins.scss` | Mixins reutilizáveis (`foco-anel`, `foco-campo`) |
-| `_base.scss` | Tema sobre as variáveis `--bs-*` do Bootstrap, rolagem por âncoras e tipografia |
-| `_components.scss` | Botões, categorias (nav pills) e campos de formulário |
-| `_layout.scss` | Blocos de layout, como o banner de chamada |
-| `main.scss` | Arquivo principal, que importa os módulos com `@use` |
+| Arquivo            | Conteúdo                                                                        |
+| ------------------ | ------------------------------------------------------------------------------- |
+| `_variables.scss`  | Variáveis de cor, tipografia, espaçamento e foco                                |
+| `_mixins.scss`     | Mixins reutilizáveis (`foco-anel`, `foco-campo`)                                |
+| `_base.scss`       | Tema sobre as variáveis `--bs-*` do Bootstrap, rolagem por âncoras e tipografia |
+| `_components.scss` | Botões, categorias (nav pills) e campos de formulário                           |
+| `_layout.scss`     | Blocos de layout, como o banner de chamada                                      |
+| `main.scss`        | Arquivo principal, que importa os módulos com `@use`                            |
 
 Comandos: `npm run sass` compila uma vez; `npm run sass:watch` recompila a cada alteração. Nunca edite o `assets/css/style.css` à mão, pois ele é sobrescrito na próxima compilação.
-
 
 O CSS do projeto deixou de ficar em `styles/styles.css`: o código-fonte agora está em `assets/scss/` e o `assets/css/style.css` é gerado pelo comando `npm run sass`. O `style.css` é versionado porque o `node_modules` não vai para o repositório e as páginas dependem dele.
 
