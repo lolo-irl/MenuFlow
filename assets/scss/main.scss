@@ -1,0 +1,8 @@
+// Arquivo principal: importa os módulos com @use.
+// Compilado para assets/css/style.css (npm run sass).
+
+@use 'variables';
+@use 'mixins';
+@use 'base';
+@use 'components';
+@use 'layout';

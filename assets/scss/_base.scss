@@ -1,0 +1,32 @@
+@use 'variables';
+
+// Tema: sobrescreve as variáveis CSS do Bootstrap 5.3 (--bs-*), sem !important.
+:root {
+  --bs-primary: #{variables.$cor-primaria};
+  --bs-primary-rgb: #{variables.$cor-primaria-rgb};
+  --bs-primary-bg-subtle: #{variables.$cor-primaria-clara};
+  --bs-primary-text-emphasis: #{variables.$cor-primaria-escura};
+
+  --bs-success: #{variables.$cor-sucesso};
+  --bs-success-rgb: #{variables.$cor-sucesso-rgb};
+  --bs-success-bg-subtle: #{variables.$cor-sucesso-clara};
+  --bs-success-text-emphasis: #{variables.$cor-sucesso};
+
+  --bs-body-bg: #{variables.$cor-fundo};
+  --bs-body-color: #{variables.$cor-texto};
+
+  --bs-link-color: #{variables.$cor-primaria};
+  --bs-link-color-rgb: #{variables.$cor-primaria-rgb};
+  --bs-link-hover-color: #{variables.$cor-primaria-escura};
+  --bs-link-hover-color-rgb: #{variables.$cor-primaria-escura-rgb};
+}
+
+// Evita que a navbar sticky cubra o título ao clicar em âncoras (#como-funciona)
+html {
+  scroll-padding-top: variables.$compensacao-ancora;
+}
+
+// Tipografia
+.letter-spacing-1 {
+  letter-spacing: variables.$espacamento-letras;
+}

@@ -9,7 +9,9 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier --write .",
-        "format:check": "prettier --check ."
+        "format:check": "prettier --check .",
+        "sass": "sass assets/scss/main.scss assets/css/style.css --style=expanded --no-source-map",
+        "sass:watch": "sass --watch assets/scss/main.scss:assets/css/style.css --style=expanded --no-source-map"
     },
     "repository": {
         "type": "git",
@@ -30,6 +32,7 @@
     },
     "devDependencies": {
         "gh-pages": "^6.3.0",
-        "prettier": "^3.9.10"
+        "prettier": "^3.9.10",
+        "sass": "^1.108.1"
     }
 }

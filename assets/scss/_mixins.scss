@@ -1,0 +1,13 @@
+@use 'variables';
+
+// Anel de foco padrão do tema, reutilizado por campos e radios.
+@mixin foco-anel {
+  box-shadow: 0 0 0 variables.$foco-espessura
+    rgba(variables.$cor-primaria, variables.$foco-opacidade);
+}
+
+// Campo marcado ou em foco: mesma borda e mesmo anel, em um só lugar.
+@mixin foco-campo {
+  border-color: variables.$cor-primaria-foco;
+  @include foco-anel;
+}

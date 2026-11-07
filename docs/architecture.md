@@ -54,7 +54,7 @@ Disponibiliza as funcionalidades utilizadas pelo administrador:
 | Fetch API | Comunicação assíncrona com a API | Planejado |
 | localStorage | Persistência local do carrinho | Planejado |
 | Node.js e NPM | Gerenciamento do ambiente e dependências | Em uso |
-| Sass | Organização e compilação dos estilos | Planejado |
+| Sass | Organização e compilação dos estilos | Em uso (Sass) |
 | ESLint | Padronização e análise do código JavaScript | Planejado |
 | Prettier | Formatação do código | Em uso |
 | Stitch | Prototipação das interfaces | Utilizado na Atividade 08 |
@@ -305,37 +305,66 @@ Os status previstos são:
 
 ## 11. Estrutura de diretórios
 
-A estrutura atual do projeto está organizada da seguinte maneira:
+Estrutura adotada a partir da Atividade 08 e ampliada na atividade de Sass. Itens marcados como _(planejado)_ ainda não existem no projeto.
 
 ```
 MenuFlow/
-├── index.html
+│
+├── index.html                    # página inicial (na raiz)
+│
 ├── pages/
-│   ├── client/
+│   ├── client/                   # área pública
 │   │   ├── cardapio.html
 │   │   └── finalizar-pedido.html
-│   └── admin/
+│   └── admin/                    # área administrativa
 │       ├── login.html
 │       ├── dashboard.html
 │       ├── produtos.html
 │       └── pedidos.html
-├── styles/
-│   └── styles.css
-├── assets/ (planejado)
-│   ├── js/ (planejado)
-│   └── images/ (planejado)
+│
+├── assets/
+│   ├── scss/                     # código-fonte dos estilos (Sass)
+│   │   ├── _variables.scss
+│   │   ├── _mixins.scss
+│   │   ├── _base.scss
+│   │   ├── _components.scss
+│   │   ├── _layout.scss
+│   │   └── main.scss
+│   ├── css/
+│   │   └── style.css             # gerado pelo Sass (versionado)
+│   ├── js/                       # (planejado)
+│   └── images/                   # (planejado)
+│
 ├── docs/
 │   ├── prd.md
 │   └── architecture.md
-├── db.json (planejado)
+│
+├── db.json                       # (planejado)
 ├── package.json
 ├── .prettierrc
+├── .prettierignore
 └── README.md
 ```
 
-Em relação ao planejamento anterior, as páginas administrativas foram organizadas dentro de `pages/admin/`, as páginas públicas dentro de `pages/client/` e os estilos passaram a ficar em `styles/`, em vez de `assets/css/`. As pastas `assets/js`, `assets/images` e o arquivo `db.json` ainda não existem e permanecem planejados.
+## 12. Estilos com Sass
 
-## 12. Considerações técnicas e limitações
+Os estilos do projeto são escritos em Sass (sintaxe SCSS) em `assets/scss/` e compilados para `assets/css/style.css`. As páginas carregam apenas esse arquivo, depois do CSS do Bootstrap.
+
+| Arquivo | Conteúdo |
+| --- | --- |
+| `_variables.scss` | Variáveis de cor, tipografia, espaçamento e foco |
+| `_mixins.scss` | Mixins reutilizáveis (`foco-anel`, `foco-campo`) |
+| `_base.scss` | Tema sobre as variáveis `--bs-*` do Bootstrap, rolagem por âncoras e tipografia |
+| `_components.scss` | Botões, categorias (nav pills) e campos de formulário |
+| `_layout.scss` | Blocos de layout, como o banner de chamada |
+| `main.scss` | Arquivo principal, que importa os módulos com `@use` |
+
+Comandos: `npm run sass` compila uma vez; `npm run sass:watch` recompila a cada alteração. Nunca edite o `assets/css/style.css` à mão, pois ele é sobrescrito na próxima compilação.
+
+
+O CSS do projeto deixou de ficar em `styles/styles.css`: o código-fonte agora está em `assets/scss/` e o `assets/css/style.css` é gerado pelo comando `npm run sass`. O `style.css` é versionado porque o `node_modules` não vai para o repositório e as páginas dependem dele.
+
+## 13. Considerações técnicas e limitações
 
 O JSON Server será utilizado para fins acadêmicos e de demonstração. Ele permite simular operações de uma API REST, mas não oferece os mesmos recursos de segurança e controle de um back-end de produção.
 

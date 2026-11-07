@@ -1,0 +1,28 @@
+// ==== CORES ====
+// Cor principal do MenuFlow (terracota): botões, links e destaques.
+$cor-primaria: #a43700;
+$cor-primaria-escura: #852d00; // hover e estados ativos
+$cor-primaria-clara: #ffeedf; // fundos suaves (bg-primary-subtle)
+$cor-primaria-foco: #d28a66; // borda de campos em foco
+$cor-primaria-gradiente: #cd4700; // fim do degradê do banner
+$cor-primaria-rgb: 164, 55, 0; // mesma cor em RGB (usada nas variáveis --bs-*-rgb)
+$cor-primaria-escura-rgb: 133, 45, 0;
+
+// Cor secundária (verde culinário): disponibilidade e sucesso.
+$cor-sucesso: #1b6d24;
+$cor-sucesso-clara: #e2f5e4;
+$cor-sucesso-rgb: 27, 109, 36;
+
+// Cores de página
+$cor-fundo: #f9f9fc;
+$cor-texto: #111c2d;
+
+// ==== TIPOGRAFIA ====
+$espacamento-letras: 0.05em; // rótulos em caixa alta
+
+// ==== ESPAÇAMENTO E EFEITOS ====
+// Compensa a navbar sticky ao navegar por âncoras.
+$compensacao-ancora: 5rem;
+// Anel de foco dos campos de formulário.
+$foco-espessura: 0.25rem;
+$foco-opacidade: 0.25;
