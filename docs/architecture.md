@@ -57,9 +57,51 @@ Disponibiliza as funcionalidades utilizadas pelo administrador:
 | Sass                  | Organização e compilação dos estilos                                             | Em uso (Sass)             |
 | ESLint                | Padronização e análise do código JavaScript                                      | Planejado                 |
 | Prettier              | Formatação do código                                                             | Em uso                    |
-| Stitch                | Prototipação das interfaces                                                      | Utilizado na Atividade 08 |
-| Google AI Studio      | Geração inicial das páginas HTML a partir dos protótipos                         | Utilizado na Atividade 08 |
-| Claude                | Revisão do código com base nas regras do projeto                                 | Utilizado na Atividade 08 |
+
+## 3.1. Design System e Design Tokens
+
+O MenuFlow utiliza uma identidade visual baseada em tons
+terrosos, com destaque para o terracota, complementada
+por tons de verde que representam disponibilidade e sucesso.
+
+### Paleta de cores
+
+| Token | Valor | Aplicação |
+|---|---|---|
+| Primary | #A43700 | Botões, links e destaques |
+| Primary Dark | #852D00 | Hover e estados ativos |
+| Primary Light | #FFEEDF | Fundos suaves |
+| Primary Focus | #D28A66 | Foco de campos |
+| Success | #1B6D24 | Disponibilidade e confirmação |
+| Success Light | #E2F5E4 | Fundos de sucesso |
+| Background | #F9F9FC | Fundo das páginas |
+| Text | #111C2D | Textos principais |
+
+### Tipografia
+
+- Família: system-ui, sans-serif (padrão do Bootstrap 5.3).
+- Títulos: hierarquia de headings do Bootstrap (h1 a h6).
+- Textos: tipografia padrão do Bootstrap.
+- Pesos: light (300), regular (400), medium (500) e bold (700), conforme a necessidade visual.
+
+### Framework CSS
+
+O framework oficial escolhido é o Bootstrap 5.3,
+instalado pelo NPM.
+
+Serão utilizados principalmente:
+
+- Grid System: organização responsiva das páginas.
+- Navbar: navegação principal.
+- Cards: apresentação dos produtos.
+- Modals: confirmação e detalhes de operações.
+- Forms: cadastro e finalização de pedidos.
+- Tables: gerenciamento de pedidos e produtos.
+- Offcanvas: navegação e carrinho em dispositivos móveis.
+
+A personalização visual será realizada com Sass/SCSS,
+utilizando variáveis e componentes próprios para manter
+a consistência do Design System.
 
 ## 4. Modelo de dados
 
