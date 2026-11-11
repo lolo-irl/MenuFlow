@@ -95,6 +95,7 @@ As histórias abaixo representam o escopo planejado para a aplicação.
 - [ ] **US21 — Consultar detalhes:** Como administrador, quero visualizar os detalhes de um pedido para conferir os produtos e as observações informadas. _(interface pronta na Atividade 08; lógica pendente)_
 - [ ] **US22 — Atualizar status:** Como administrador, quero alterar o status de um pedido para informar se está pendente, em preparo ou concluído. _(interface pronta na Atividade 08; lógica pendente)_
 - [ ] **US23 — Resumo administrativo:** Como administrador, quero visualizar indicadores simples, como quantidade de produtos e pedidos pendentes, para acompanhar o funcionamento do sistema. _(interface pronta na Atividade 08; lógica pendente)_
+- [ ] **US24 — Consulta de informações nutricionais:** Como administrador, quero consultar informações nutricionais e ingredientes de produtos industrializados por meio do código de barras, para complementar os dados apresentados aos clientes.
 
 ## 7. Regras de Negócio
 
@@ -109,6 +110,8 @@ As histórias abaixo representam o escopo planejado para a aplicação.
 9. Os status previstos para os pedidos serão: **Pendente**, **Em preparo** e **Concluído**.
 10. O administrador poderá alterar a disponibilidade dos produtos e o status dos pedidos.
 11. O carrinho será armazenado no navegador por meio do `localStorage`; os produtos, clientes e pedidos serão persistidos no JSON Server.
+12. A consulta à API Open Food Facts será opcional. Os dados retornados poderão complementar as informações dos produtos, mas não substituirão os dados cadastrados pelo administrador.
+13. Caso o produto não seja encontrado na API externa, o cadastro deverá continuar funcionando normalmente.
 
 ## 8. Fora do Escopo
 
