@@ -103,6 +103,61 @@ A personalização visual será realizada com Sass/SCSS,
 utilizando variáveis e componentes próprios para manter
 a consistência do Design System.
 
+
+## 3.2. API Pública Externa
+
+### Open Food Facts API
+
+A aplicação utilizará futuramente a API pública Open Food
+Facts para consultar informações complementares sobre
+produtos alimentícios.
+
+**Documentação:** https://openfoodfacts.github.io/documentation/
+
+**Base URL:** https://world.openfoodfacts.org
+
+**Versão:** API v3.6.
+
+**Finalidade da integração:**
+
+- Consultar produtos por código de barras.
+- Obter informações sobre ingredientes.
+- Consultar informações nutricionais.
+- Complementar os detalhes dos produtos cadastrados.
+
+**Endpoint previsto:**
+
+GET /api/v3/product/{codigo_de_barras}
+
+**Fluxo de utilização:**
+
+1. O administrador informa o código de barras de um produto.
+2. O front-end realiza uma requisição utilizando Fetch API.
+3. A aplicação interpreta a resposta JSON.
+4. Os dados disponíveis são apresentados no cadastro ou
+   nos detalhes do produto.
+
+**Tratamento de erros:**
+
+- Produto não encontrado.
+- Código de barras inválido.
+- Falha de conexão.
+- Resposta indisponível ou incompleta.
+
+A API será utilizada como fonte complementar de informações.
+O cadastro principal, os preços e a disponibilidade dos
+produtos continuarão sendo controlados pelo MenuFlow,
+por meio do JSON Server.
+
+A integração será opcional, pois nem todos os produtos
+de um estabelecimento possuem código de barras ou
+estão cadastrados na base externa.
+
+**Observação:** os dados nutricionais externos não devem
+ser tratados como substitutos das informações oficiais
+fornecidas pelo estabelecimento.
+
+
 ## 4. Modelo de dados
 
 O sistema utilizará quatro entidades principais: CLIENTE, PRODUTO, PEDIDO e ITEM_PEDIDO.
